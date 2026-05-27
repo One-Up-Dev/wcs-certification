@@ -52,6 +52,10 @@
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>
           <span>Scraping</span>
         </a>
+        <a href="#rgpd" class="nav-link" data-module="rgpd">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>RGPD &amp; Éthique</span>
+        </a>
       </div>
 
       <div class="nav-section">
@@ -72,6 +76,10 @@
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
           <span>Pandas Transfo</span>
         </a>
+        <a href="#regex" class="nav-link" data-module="regex">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3v10M12.67 5.5l8.66 5M12.67 10.5l8.66-5M9 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM7 7h.01"/></svg>
+          <span>Regex &amp; Anonymisation</span>
+        </a>
       </div>
 
       <div class="nav-section">
@@ -88,6 +96,14 @@
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/></svg>
           <span>ML Classification</span>
         </a>
+        <a href="#nlp" class="nav-link" data-module="nlp">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>NLP</span>
+        </a>
+        <a href="#ethique-ia" class="nav-link" data-module="ethique-ia">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 12h14M7 7l10 10M17 7 7 17"/></svg>
+          <span>Éthique IA &amp; Biais</span>
+        </a>
       </div>
 
       <div class="nav-section">
@@ -99,6 +115,10 @@
         <a href="#plotly" class="nav-link" data-module="plotly">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4z"/></svg>
           <span>Plotly</span>
+        </a>
+        <a href="#folium" class="nav-link" data-module="folium">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Folium &amp; Cartographie</span>
         </a>
         <a href="#power-bi" class="nav-link" data-module="power-bi">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -2395,6 +2415,382 @@ df["prix"] = (
 )
 df.to_csv("produits.csv", index=False)
 print(f"{len(df)} produits sauvegardés")</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+         BLOC 1 — RGPD
+    ========================================================== -->
+    <section class="module" id="module-rgpd" hidden>
+      <h1 class="module-title">RGPD &amp; Éthique de la donnée</h1>
+      <p class="module-subtitle">Cadre légal (RGPD, CNIL, IA Act), bases légales, droits des personnes, anonymisation. <strong>Compétence transverse Bloc 1 du RNCP 37429</strong>.</p>
+
+      <!-- 1. PRINCIPES RGPD -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          1. Les 7 principes du RGPD
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Le <strong>Règlement Général sur la Protection des Données</strong> (UE 2016/679, applicable depuis mai 2018) encadre tout traitement de données personnelles. Le non-respect coûte jusqu'à <strong>4&nbsp;% du CA mondial</strong>. Un Data Analyst doit connaître ces règles.</p>
+            <h4>Les 7 principes (art. 5) :</h4>
+            <ul>
+              <li><strong>Licéité, loyauté, transparence</strong> — base légale claire</li>
+              <li><strong>Limitation des finalités</strong> — usage déclaré uniquement</li>
+              <li><strong>Minimisation</strong> — collecter le strict nécessaire</li>
+              <li><strong>Exactitude</strong> — données à jour</li>
+              <li><strong>Limitation de conservation</strong> — durée justifiée</li>
+              <li><strong>Intégrité &amp; confidentialité</strong> — sécurité technique</li>
+              <li><strong>Responsabilité (accountability)</strong> — preuves documentées</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> croire que le RGPD ne s'applique qu'aux nominatifs. Tout ce qui permet d'identifier une personne <em>indirectement</em> (IP, cookie, identifiant client) est une donnée personnelle.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> phrase à connaître — <em>« Une donnée personnelle est toute information se rapportant à une personne physique identifiée ou identifiable. »</em> Définition exacte du règlement.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">principes_rgpd.md</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-bash"># Données personnelles courantes en data analyse
+# - Nom, prénom, email, téléphone
+# - Adresse IP, identifiant cookie, device ID
+# - Localisation GPS
+# - Identifiant client, n° de commande lié à une personne
+# - Photo, voix, données biométriques
+
+# Données sensibles (catégories spéciales — art. 9)
+# Interdites par défaut, sauf consentement explicite ou base légale
+# - Origine raciale/ethnique
+# - Opinions politiques, religieuses, syndicales
+# - Données de santé
+# - Vie sexuelle, orientation
+# - Génétiques, biométriques
+
+# Acteurs RGPD
+# - Personne concernée   : celui dont on traite les données
+# - Responsable de traitement : entreprise qui décide pourquoi/comment
+# - Sous-traitant        : prestataire qui exécute (ex: Cloud)
+# - DPO (Data Protection Officer) : référent interne
+# - CNIL                 : autorité de contrôle française
+# - EDPB                 : autorité européenne</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. BASES LÉGALES -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </span>
+          2. Bases légales du traitement
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Aucun traitement n'est possible sans <strong>base légale</strong> (art. 6). C'est la justification juridique du « pourquoi tu traites ces données ». Sans elle, le traitement est illégal.</p>
+            <h4>Les 6 bases légales :</h4>
+            <ul>
+              <li><strong>Consentement</strong> — explicite, libre, éclairé, révocable</li>
+              <li><strong>Contrat</strong> — nécessaire à l'exécution (ex&nbsp;: livraison)</li>
+              <li><strong>Obligation légale</strong> — comptabilité, fiscalité</li>
+              <li><strong>Intérêt vital</strong> — vie/santé d'une personne</li>
+              <li><strong>Mission d'intérêt public</strong> — administrations</li>
+              <li><strong>Intérêt légitime</strong> — équilibré avec les droits (ex&nbsp;: prévention fraude)</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> dérouler « consentement » à toutes les sauces. Le consentement n'est valable que s'il est <strong>libre</strong> — un employeur ne peut pas demander le « consentement » d'un salarié, déséquilibre de pouvoir.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> en oral, identifie la base légale d'un projet client. Marketing → consentement ; gestion CRM → contrat ; détection fraude → intérêt légitime.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">bases_legales.md</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-bash"># EXEMPLES DE CAS PRATIQUES
+
+# Cas 1 : Newsletter marketing
+# Base légale : CONSENTEMENT
+# Conditions : opt-in (case décochée), info claire, retrait facile
+
+# Cas 2 : Livraison d'une commande
+# Base légale : CONTRAT
+# Données : nom, adresse — strictement nécessaires
+
+# Cas 3 : Conservation factures 10 ans
+# Base légale : OBLIGATION LÉGALE (Code de commerce)
+
+# Cas 4 : Vidéosurveillance entrée d'entreprise
+# Base légale : INTÉRÊT LÉGITIME (sécurité)
+# Conditions : balance avec droits, info des visiteurs, durée limitée
+
+# Cas 5 : Analyse churn clients
+# Base légale : INTÉRÊT LÉGITIME (amélioration service)
+# Conditions : information préalable, droit d'opposition, anonymisation rapide
+
+# DURÉES DE CONSERVATION (à documenter — accountability)
+# - Prospect non transformé : 3 ans après dernier contact
+# - Client actif           : durée de la relation + N ans (fiscal/contentieux)
+# - Facture                : 10 ans (obligation comptable)
+# - Cookies marketing      : 13 mois max (CNIL)</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. DROITS DES PERSONNES -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          3. Droits des personnes
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Une personne dont tu traites les données a des <strong>droits opposables</strong>. Tu dois pouvoir y répondre sous <strong>1 mois</strong>. Un Data Analyst conçoit ses bases pour rendre ces droits exploitables.</p>
+            <h4>Les 7 droits :</h4>
+            <ul>
+              <li><strong>Information</strong> — savoir qu'on est tracé</li>
+              <li><strong>Accès</strong> — récupérer ses données</li>
+              <li><strong>Rectification</strong> — corriger une erreur</li>
+              <li><strong>Effacement</strong> (« droit à l'oubli »)</li>
+              <li><strong>Limitation</strong> — geler le traitement</li>
+              <li><strong>Portabilité</strong> — récupérer en format réutilisable</li>
+              <li><strong>Opposition</strong> — refuser pour motif personnel</li>
+              <li><strong>+ Décision automatisée</strong> — droit d'être réexaminé par un humain</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> ne pas avoir prévu la <strong>suppression en cascade</strong>. Effacer un client doit supprimer aussi ses commandes liées (ou les anonymiser). Sinon le droit à l'oubli n'est pas tenu.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> pour le <strong>droit à la portabilité</strong>, propose un export <strong>CSV/JSON</strong> structuré — pas un PDF inexploitable. C'est la lettre du règlement (art. 20).</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">droits_personnes.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import pandas as pd
+
+# 1. Droit d'accès — exporter toutes les données d'un client
+def export_donnees_client(client_id: int) -&gt; dict:
+    """Réponse à une demande d'accès (art. 15)."""
+    return {
+        "profil"   : df_clients.query("id == @client_id").to_dict("records"),
+        "commandes": df_commandes.query("client_id == @client_id").to_dict("records"),
+        "logs"     : df_logs.query("client_id == @client_id").to_dict("records"),
+    }
+
+# 2. Droit à l'effacement — suppression en cascade
+def supprimer_client(client_id: int):
+    """Droit à l'oubli (art. 17)."""
+    # 2a. Anonymiser les commandes (à garder pour comptabilité)
+    df_commandes.loc[df_commandes["client_id"] == client_id, "client_id"] = None
+
+    # 2b. Supprimer les logs (pas d'obligation légale)
+    df_logs.drop(df_logs[df_logs["client_id"] == client_id].index, inplace=True)
+
+    # 2c. Supprimer la fiche client
+    df_clients.drop(df_clients[df_clients["id"] == client_id].index, inplace=True)
+
+    # 2d. Tracer la suppression (preuve d'exécution = accountability)
+    log_action("RGPD-SUPPRESSION", client_id=client_id)
+
+# 3. Portabilité — export structuré (art. 20)
+def export_portabilite(client_id: int, format="json"):
+    data = export_donnees_client(client_id)
+    if format == "json":
+        pd.json_normalize(data).to_json(f"client_{client_id}.json", indent=2)
+    elif format == "csv":
+        pd.DataFrame(data["commandes"]).to_csv(f"client_{client_id}.csv", index=False)</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ANONYMISATION / PSEUDONYMISATION -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-pink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="1" fill="currentColor"/></svg>
+          </span>
+          4. Anonymisation vs Pseudonymisation
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Distinction <strong>fondamentale</strong> et souvent confondue&nbsp;: la <strong>pseudonymisation</strong> est réversible (RGPD s'applique), <strong>l'anonymisation</strong> est irréversible (sort du RGPD).</p>
+            <h4>Différences :</h4>
+            <ul>
+              <li><strong>Pseudonymisation</strong>&nbsp;: remplacer un identifiant par un autre (hash, token). Réversible avec une table de correspondance. <strong>Toujours soumis au RGPD</strong>.</li>
+              <li><strong>Anonymisation</strong>&nbsp;: rendre impossible la ré-identification. <strong>Hors RGPD</strong>. Très difficile en pratique.</li>
+            </ul>
+            <h4>Techniques d'anonymisation :</h4>
+            <ul>
+              <li><strong>Généralisation</strong>&nbsp;: âge 34 → tranche 30-40</li>
+              <li><strong>Suppression</strong>&nbsp;: retirer les identifiants directs</li>
+              <li><strong>Bruit aléatoire</strong>&nbsp;: ajouter de la perturbation contrôlée</li>
+              <li><strong>k-anonymat</strong>&nbsp;: chaque ligne ressemble à au moins k autres</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> appeler « anonymisation » un simple <code>hash(email)</code>. Si on connaît l'email, on peut retrouver le hash → c'est de la pseudonymisation. Vrai anonyme = aucun moyen de retrouver l'individu.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> en oral, illustre — <em>« J'utilise la pseudonymisation pour l'analyse interne, et l'anonymisation (généralisation + k-anonymat) avant tout partage externe ou publication. »</em></div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">anonymisation.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import hashlib
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("clients.csv")
+
+# 1. PSEUDONYMISATION — hash réversible avec une table
+def hash_id(value: str, secret: str = "ma_cle_secrete") -&gt; str:
+    return hashlib.sha256(f"{secret}:{value}".encode()).hexdigest()[:16]
+
+df["client_pseudo"] = df["email"].apply(hash_id)
+df = df.drop(columns=["email", "nom", "telephone"])
+# Toujours sous RGPD : on peut retrouver via la clé secrète
+
+# 2. ANONYMISATION par GÉNÉRALISATION
+df["age_tranche"] = pd.cut(
+    df["age"],
+    bins=[0, 18, 30, 45, 60, 120],
+    labels=["&lt;18", "18-30", "30-45", "45-60", "60+"],
+)
+df["cp_zone"] = df["code_postal"].astype(str).str[:2]   # département seul
+df = df.drop(columns=["age", "code_postal"])
+
+# 3. K-ANONYMAT — vérification
+groupes = df.groupby(["age_tranche", "ville", "csp"]).size()
+print(f"k-anonymat minimum : {groupes.min()}")
+# Si min = 1, certaines lignes sont uniques → ré-identifiables
+# Objectif : k ≥ 5 (chaque combinaison apparaît ≥ 5 fois)
+
+# 4. SUPPRESSION DES IDENTIFIANTS DIRECTS
+COLONNES_PII = ["nom", "prenom", "email", "telephone",
+                "ip", "adresse", "numero_securite_sociale"]
+df_anonyme = df.drop(columns=[c for c in COLONNES_PII if c in df.columns])
+
+# 5. BRUIT ALÉATOIRE sur valeurs numériques
+rng = np.random.default_rng(42)
+df["salaire_anonyme"] = df["salaire"] + rng.normal(0, df["salaire"].std() * 0.05)</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. CONFORMITÉ EN PRATIQUE -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/></svg>
+          </span>
+          5. Conformité en pratique — Outils &amp; checklist
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Au-delà des principes, l'accountability impose de <strong>documenter</strong> et <strong>tracer</strong>. Outils standards&nbsp;: registre de traitements, AIPD (analyse d'impact), DPO.</p>
+            <h4>Documents obligatoires :</h4>
+            <ul>
+              <li><strong>Registre des traitements</strong> (art. 30) — liste de tous les traitements</li>
+              <li><strong>AIPD</strong> (Analyse d'Impact, art. 35) — pour les traitements à risque</li>
+              <li><strong>Mentions d'information</strong> (art. 13) — affichées au moment de la collecte</li>
+              <li><strong>Politique de confidentialité</strong> — accessible publiquement</li>
+              <li><strong>Contrats de sous-traitance</strong> (art. 28) — clauses obligatoires</li>
+            </ul>
+            <h4>IA Act (depuis 2024) :</h4>
+            <ul>
+              <li>Règlement européen complémentaire pour l'IA</li>
+              <li>Classification par risque (interdit / haut risque / risque limité / risque minimal)</li>
+              <li>Obligations renforcées pour IA à haut risque (santé, RH, justice)</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> ignorer le transfert <strong>hors UE</strong>. Stocker des données sur un cloud US sans <strong>Clauses Contractuelles Types</strong> (CCT) ou décision d'adéquation = violation. Vérifie où sont tes serveurs.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> mentionne le <strong>Privacy by Design</strong> (art. 25) — intégrer la protection des données <em>dès la conception</em> du projet, pas en patch. Concept attendu en oral.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">checklist_rgpd.md</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-bash"># CHECKLIST DATA ANALYST — Avant tout projet data
+
+## 1. Identification
+[ ] Quelles données vais-je traiter ?
+[ ] Sont-elles personnelles ? Sensibles ?
+[ ] D'où viennent-elles ? (collecte directe / tiers / scraping)
+
+## 2. Base légale
+[ ] Quelle base légale (consentement, contrat, intérêt légitime…) ?
+[ ] Documentée par écrit ?
+
+## 3. Minimisation
+[ ] Toutes les colonnes sont-elles utiles ?
+[ ] Puis-je travailler sur un échantillon / agrégat ?
+[ ] Puis-je pseudonymiser dès l'import ?
+
+## 4. Durée de conservation
+[ ] Combien de temps je garde ?
+[ ] Process de purge automatique ?
+
+## 5. Sécurité technique
+[ ] Données chiffrées au repos (.env, vault) ?
+[ ] Accès restreint (principe du moindre privilège) ?
+[ ] Logs d'accès ?
+
+## 6. Droits des personnes
+[ ] Comment je traite une demande d'accès ?
+[ ] Suppression en cascade testée ?
+[ ] Export portable disponible ?
+
+## 7. Transfert hors UE ?
+[ ] Si oui : CCT signées ? Décision d'adéquation ?
+
+## 8. IA Act (si projet ML)
+[ ] Risque classifié ?
+[ ] Documentation modèle (data card, model card) ?
+[ ] Explicabilité des décisions ?
+
+# RESSOURCES OFFICIELLES
+# - CNIL : https://www.cnil.fr/fr/professionnels
+# - EDPB : https://edpb.europa.eu
+# - AIPD : guide CNIL téléchargeable
+# - PIA   : logiciel CNIL gratuit pour analyses d'impact</code></pre>
           </div>
         </div>
       </div>
@@ -5262,6 +5658,425 @@ df.query("`nom complet`.str.startswith('A')", engine="python")</code></pre>
     </section>
 
     <!-- =========================================================
+         BLOC 2 — REGEX
+    ========================================================== -->
+    <section class="module" id="module-regex" hidden>
+      <h1 class="module-title">Regex &amp; Anonymisation</h1>
+      <p class="module-subtitle">Expressions régulières en Python (<code>re</code>) pour extraction, validation et anonymisation. <strong>Compétence Bloc 2 du RNCP 37429</strong>.</p>
+
+      <!-- 1. PRINCIPE -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3v10M12.67 5.5l8.66 5M12.67 10.5l8.66-5M9 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+          </span>
+          1. Le module <code>re</code> &amp; les fonctions clés
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Une regex décrit un <strong>motif</strong> à chercher dans du texte. C'est l'outil universel pour valider des emails, extraire des numéros, masquer des données sensibles, parser du log brut.</p>
+            <h4>Les 5 fonctions clés de <code>re</code> :</h4>
+            <ul>
+              <li><code>re.search(pat, txt)</code> — premier match (ou <code>None</code>)</li>
+              <li><code>re.findall(pat, txt)</code> — tous les matches en liste</li>
+              <li><code>re.finditer(pat, txt)</code> — itérateur avec positions</li>
+              <li><code>re.sub(pat, repl, txt)</code> — remplacer</li>
+              <li><code>re.fullmatch(pat, txt)</code> — match complet (validation)</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> oublier le préfixe <code>r"..."</code> (raw string). Sans lui, <code>"\d"</code> est interprété par Python avant <code>re</code>, et tu obtiens des bugs cryptiques. <strong>Toujours r-string</strong> pour les regex.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> compile la regex si tu la réutilises&nbsp;: <code>pat = re.compile(r"...")</code>. Plus rapide sur de gros volumes.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">re_bases.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import re
+
+texte = "Contact : alice@example.fr ou 06 12 34 56 78"
+
+# 1. search — premier match
+m = re.search(r"\d{2} \d{2} \d{2} \d{2} \d{2}", texte)
+if m:
+    print(m.group())        # "06 12 34 56 78"
+    print(m.start(), m.end())  # 30, 44
+
+# 2. findall — tous les matches
+emails = re.findall(r"\S+@\S+\.\S+", texte)
+# → ['alice@example.fr']
+
+# 3. finditer — pour position + texte
+for m in re.finditer(r"\d+", texte):
+    print(f"{m.group()} à la position {m.start()}")
+
+# 4. sub — remplacer
+clean = re.sub(r"\d", "X", texte)
+# "Contact : alice@example.fr ou XX XX XX XX XX"
+
+# 5. fullmatch — valider
+def email_valide(s: str) -&gt; bool:
+    return bool(re.fullmatch(r"[\w.+-]+@[\w-]+\.[\w.-]+", s))
+
+email_valide("alice@example.fr")    # True
+email_valide("pas un email")         # False
+
+# 6. Compilation (perf sur gros volume)
+EMAIL_RE = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
+for ligne in fichier:
+    if EMAIL_RE.search(ligne):
+        ...</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. SYNTAXE -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h16"/></svg>
+          </span>
+          2. Syntaxe — caractères, classes, quantificateurs
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>La syntaxe regex est universelle (sklearn, Pandas <code>.str</code>, JS, Java…). Quelques symboles à mémoriser couvrent 90&nbsp;% des besoins.</p>
+            <h4>Classes prédéfinies :</h4>
+            <ul>
+              <li><code>\d</code> — chiffre (équivalent <code>[0-9]</code>)</li>
+              <li><code>\w</code> — alphanumérique + underscore</li>
+              <li><code>\s</code> — espace, tab, retour ligne</li>
+              <li>Majuscule = négation&nbsp;: <code>\D</code>, <code>\W</code>, <code>\S</code></li>
+              <li><code>.</code> — n'importe quel caractère (sauf <code>\n</code>)</li>
+            </ul>
+            <h4>Quantificateurs :</h4>
+            <ul>
+              <li><code>?</code> — 0 ou 1</li>
+              <li><code>*</code> — 0 ou plus</li>
+              <li><code>+</code> — 1 ou plus</li>
+              <li><code>{n}</code>, <code>{n,m}</code> — précis</li>
+            </ul>
+            <h4>Ancres &amp; groupes :</h4>
+            <ul>
+              <li><code>^</code> début, <code>$</code> fin</li>
+              <li><code>(...)</code> groupe capturant</li>
+              <li><code>(?:...)</code> non capturant</li>
+              <li><code>|</code> alternative</li>
+              <li><code>[abc]</code> set, <code>[^abc]</code> négation</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> <code>.*</code> est <strong>greedy</strong> (capture le plus possible). Utilise <code>.*?</code> (lazy) pour le minimum, sinon ta regex « avale » trop.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> teste tes regex sur <a href="https://regex101.com" style="color:var(--color-accent)">regex101.com</a> avec mode Python — visuel et permet de vérifier rapidement.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">syntaxe.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import re
+
+# 1. Classes prédéfinies
+re.findall(r"\d+",  "Test 123 abc 456")    # ['123', '456']
+re.findall(r"\w+",  "Hello, world!")        # ['Hello', 'world']
+re.findall(r"\s+",  "a  b\tc")              # ['  ', '\t']
+
+# 2. Quantificateurs
+re.findall(r"a?b",   "ab b ba")             # ['ab', 'b', 'b']
+re.findall(r"a+b",   "ab aab aaab")         # ['ab', 'aab', 'aaab']
+re.findall(r"\d{4}", "année 2026 année 2025") # ['2026', '2025']
+
+# 3. Greedy vs lazy
+texte = "&lt;b&gt;gras&lt;/b&gt; et &lt;i&gt;italique&lt;/i&gt;"
+re.findall(r"&lt;.*&gt;",  texte)   # ['&lt;b&gt;gras&lt;/b&gt; et &lt;i&gt;italique&lt;/i&gt;'] ❌
+re.findall(r"&lt;.*?&gt;", texte)   # ['&lt;b&gt;', '&lt;/b&gt;', '&lt;i&gt;', '&lt;/i&gt;']    ✅
+
+# 4. Ancres
+re.search(r"^Bonjour", "Bonjour Alice")     # match
+re.search(r"^Bonjour", "Salut, Bonjour")    # None
+re.search(r"\.$",      "Fin de phrase.")    # match
+
+# 5. Groupes capturants
+m = re.search(r"(\d{2})/(\d{2})/(\d{4})", "Né le 15/03/1995")
+m.groups()                  # ('15', '03', '1995')
+m.group(1), m.group(3)      # ('15', '1995')
+
+# 6. Groupes nommés (recommandé pour lisibilité)
+m = re.search(r"(?P&lt;jour&gt;\d{2})/(?P&lt;mois&gt;\d{2})/(?P&lt;annee&gt;\d{4})",
+              "15/03/1995")
+m.groupdict()
+# {'jour': '15', 'mois': '03', 'annee': '1995'}
+
+# 7. Alternative
+re.findall(r"chat|chien|oiseau", "j'ai un chat et un chien")
+# ['chat', 'chien']
+
+# 8. Set de caractères
+re.findall(r"[aeiouAEIOU]", "Bonjour")      # ['o', 'o', 'u']
+re.findall(r"[^aeiou ]",    "Hello world")  # ['H', 'l', 'l', 'w', 'r', 'l', 'd']</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. CAS PRATIQUES -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          3. Patterns prêts à l'emploi
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Email, téléphone FR, code postal, IBAN, URL, date… Ces patterns sont récurrents en data. Apprends-les par cœur, ou garde-les dans une bibliothèque perso.</p>
+            <h4>Patterns du quotidien data :</h4>
+            <ul>
+              <li>Email, téléphone, code postal</li>
+              <li>Dates ISO ou françaises</li>
+              <li>Numéros (SIRET, SIREN, NIR)</li>
+              <li>URLs, IP, montants</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> regex email « 100&nbsp;% RFC-compliant » fait 5000 caractères et est inutile. La regex courte ci-dessous attrape 99,9&nbsp;% des cas réels. <strong>Le « parfait » est l'ennemi du bien</strong>.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> pour valider sérieusement, complète la regex avec un <strong>contrôle métier</strong> (ex&nbsp;: SIRET → vérifier le checksum de Luhn). Regex = pré-filtre, pas validateur définitif.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">patterns.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import re
+
+# ---------- EMAIL ----------
+EMAIL = r"[\w.+-]+@[\w-]+\.[\w.-]+"
+
+# ---------- TÉLÉPHONE FR ----------
+# Couvre : 06 12 34 56 78 / 06.12.34.56.78 / 0612345678 / +33612345678
+TEL_FR = r"(?:\+33|0)[1-9](?:[ .-]?\d{2}){4}"
+
+# ---------- CODE POSTAL FR ----------
+CP_FR = r"\b\d{5}\b"
+
+# ---------- DATE FR (jj/mm/aaaa) ----------
+DATE_FR = r"(?P&lt;j&gt;0[1-9]|[12]\d|3[01])/(?P&lt;m&gt;0[1-9]|1[0-2])/(?P&lt;a&gt;\d{4})"
+
+# ---------- DATE ISO ----------
+DATE_ISO = r"\d{4}-\d{2}-\d{2}"
+
+# ---------- SIRET / SIREN ----------
+SIREN = r"\b\d{9}\b"
+SIRET = r"\b\d{14}\b"
+
+# ---------- IBAN FR ----------
+IBAN_FR = r"FR\d{2}[ ]?(?:\d{4}[ ]?){5}\d{3}"
+
+# ---------- URL ----------
+URL = r"https?://[\w.-]+(?:/[\w./?=&amp;-]*)?"
+
+# ---------- IP V4 ----------
+IPV4 = r"\b(?:\d{1,3}\.){3}\d{1,3}\b"
+
+# ---------- MONTANT EUR ----------
+MONTANT = r"\d{1,3}(?:[ .]\d{3})*(?:,\d{2})?\s?€"
+
+# ---------- USAGE ----------
+texte = """
+Contactez Alice au 06 12 34 56 78 ou alice@acme.fr
+SIREN 542107651, basé 75001 Paris, IBAN FR76 3000 4000 0312 3456 7890 143
+Montant facturé : 1 250,50 €
+"""
+
+for nom, pat in [("Emails", EMAIL), ("Tels", TEL_FR),
+                  ("CP", CP_FR), ("SIREN", SIREN),
+                  ("Montants", MONTANT)]:
+    matches = re.findall(pat, texte)
+    print(f"{nom}: {matches}")</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. EXTRACTION PANDAS -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </span>
+          4. Regex dans Pandas — extraction colonnes
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Pandas intègre les regex directement dans <code>.str</code>. C'est <em>la</em> manière d'extraire des informations structurées depuis une colonne texte brute.</p>
+            <h4>Méthodes <code>.str</code> + regex :</h4>
+            <ul>
+              <li><code>.str.contains(pat, regex=True)</code> — filtre</li>
+              <li><code>.str.extract(pat)</code> — 1 groupe → 1 colonne (Series ou DataFrame)</li>
+              <li><code>.str.extractall(pat)</code> — tous les matches</li>
+              <li><code>.str.replace(pat, repl, regex=True)</code></li>
+              <li><code>.str.findall(pat)</code></li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> <code>.str.extract</code> a besoin d'au moins <strong>un groupe capturant</strong> <code>(...)</code> dans le pattern. Sinon erreur.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> utilise les <strong>groupes nommés</strong> dans <code>.str.extract</code> — les colonnes du DataFrame résultant prennent automatiquement les noms.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">pandas_regex.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import pandas as pd
+
+df = pd.DataFrame({
+    "adresse": [
+        "12 rue Voltaire, 75001 Paris",
+        "5 avenue de la Paix, 69002 Lyon",
+        "Inconnu",
+    ]
+})
+
+# 1. Extraire CP + ville en 2 colonnes (groupes nommés)
+df[["cp", "ville"]] = df["adresse"].str.extract(
+    r"(?P&lt;cp&gt;\d{5})\s+(?P&lt;ville&gt;\w+)"
+)
+#                      adresse       cp     ville
+# 0  12 rue Voltaire, 75001 Paris  75001     Paris
+# 1  5 avenue ... 69002 Lyon       69002     Lyon
+# 2  Inconnu                       NaN       NaN
+
+# 2. Filtrer par regex
+mask = df["adresse"].str.contains(r"\d+\s+rue", regex=True, na=False)
+df[mask]
+
+# 3. Remplacer (nettoyage)
+df["telephone"] = (
+    df["tel"]
+    .str.replace(r"[^\d+]", "", regex=True)   # garde chiffres et +
+    .str.replace(r"^\+33", "0", regex=True)   # +33 → 0
+)
+
+# 4. Extraire TOUS les matches
+df["emails"] = df["mail_brut"].str.findall(r"[\w.+-]+@[\w-]+\.[\w.-]+")
+# → liste d'emails par ligne
+
+# 5. extractall — un email par ligne, index hiérarchique
+multi = df["texte"].str.extractall(r"(?P&lt;email&gt;[\w.+-]+@[\w-]+\.[\w.-]+)")</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. ANONYMISATION REGEX -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-pink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+          </span>
+          5. Anonymisation par regex — pipeline complet
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Avant de partager un dataset (rapport, démo, ML public), il faut <strong>nettoyer les données personnelles</strong>. Une regex bien construite remplace en masse emails, téléphones, IPs, etc.</p>
+            <h4>Stratégie :</h4>
+            <ul>
+              <li>Identifier toutes les PII potentielles (emails, tels, IDs)</li>
+              <li>Remplacer par un marqueur (<code>[EMAIL]</code>, <code>[TEL]</code>)</li>
+              <li>OU pseudonymiser (hash stable mais opaque)</li>
+              <li>Documenter les transformations dans le code</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> regex seule ne suffit pas pour les <strong>noms propres</strong>. Pour anonymiser des noms, utilise <strong>spaCy NER</strong> (cf. module NLP). Combine regex (structuré) + NER (non structuré).</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> mentionne le concept <strong>« defense in depth »</strong>&nbsp;: regex + NER + revue humaine sur un échantillon. Un seul outil ne capte jamais tout.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">anonymiser.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import re
+import hashlib
+
+# Patterns à anonymiser
+PATTERNS = {
+    "EMAIL"   : r"[\w.+-]+@[\w-]+\.[\w.-]+",
+    "TEL"     : r"(?:\+33|0)[1-9](?:[ .-]?\d{2}){4}",
+    "CP"      : r"\b\d{5}\b",
+    "IBAN"    : r"FR\d{2}(?:[ ]?\d{4}){5}[ ]?\d{3}",
+    "SIRET"   : r"\b\d{14}\b",
+    "IP"      : r"\b(?:\d{1,3}\.){3}\d{1,3}\b",
+    "CARTE"   : r"\b(?:\d{4}[ -]?){3}\d{4}\b",
+}
+
+def anonymiser(texte: str, mode: str = "marker") -&gt; str:
+    """
+    mode='marker' : remplace par [EMAIL], [TEL]... (lisible)
+    mode='hash'   : remplace par un hash stable (pseudonymisation)
+    """
+    result = texte
+    for label, pat in PATTERNS.items():
+        if mode == "marker":
+            result = re.sub(pat, f"[{label}]", result)
+        elif mode == "hash":
+            result = re.sub(
+                pat,
+                lambda m: f"[{label}_{hashlib.sha256(m.group().encode()).hexdigest()[:8]}]",
+                result,
+            )
+    return result
+
+# Démonstration
+texte = """
+Bonjour Alice (alice.dupont@example.fr),
+Votre commande au 06 12 34 56 78 livrée 75001 Paris.
+IBAN : FR76 3000 4000 0312 3456 7890 143
+"""
+
+print(anonymiser(texte, "marker"))
+# Bonjour Alice ([EMAIL]),
+# Votre commande au [TEL] livrée [CP] Paris.
+# IBAN : [IBAN]
+
+print(anonymiser(texte, "hash"))
+# Bonjour Alice ([EMAIL_a1b2c3d4]),
+# Votre commande au [TEL_e5f6g7h8] livrée [CP_i9j0k1l2] Paris.
+# → même email → même hash (utile pour analyse)
+
+# Sur DataFrame
+import pandas as pd
+df["commentaire_clean"] = df["commentaire"].apply(anonymiser)</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================================
          BLOC 3
     ========================================================== -->
     <section class="module" id="module-statistiques" hidden>
@@ -6846,6 +7661,737 @@ pipe.fit(X_train, y_train)
     </section>
 
     <!-- =========================================================
+         BLOC 3 — NLP
+    ========================================================== -->
+    <section class="module" id="module-nlp" hidden>
+      <h1 class="module-title">NLP — Natural Language Processing</h1>
+      <p class="module-subtitle">Analyser du texte avec Python. Stack moderne&nbsp;: <code>spaCy</code> (production-ready), <code>scikit-learn</code> (TF-IDF), <code>NLTK</code> (basique). <strong>Compétence Bloc 3 du RNCP 37429</strong>.</p>
+
+      <!-- 1. VUE D'ENSEMBLE -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </span>
+          1. Pipeline NLP — vue d'ensemble
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Avis clients, tickets support, commentaires réseaux sociaux, CV&hellip; Le texte représente 80&nbsp;% des données non structurées. Le <strong>NLP</strong> transforme ce texte en données analysables.</p>
+            <h4>Pipeline NLP classique :</h4>
+            <ul>
+              <li><strong>1.</strong> Pré-traitement&nbsp;: minuscules, ponctuation, stopwords</li>
+              <li><strong>2.</strong> Tokenisation&nbsp;: découper en mots</li>
+              <li><strong>3.</strong> Normalisation&nbsp;: stemming ou lemmatisation</li>
+              <li><strong>4.</strong> Vectorisation&nbsp;: TF-IDF, embeddings</li>
+              <li><strong>5.</strong> Modélisation&nbsp;: classification, clustering, NER</li>
+            </ul>
+            <h4>Quelle lib choisir ?</h4>
+            <ul>
+              <li><strong>spaCy</strong> — production, vite, NER, multi-langue (recommandé 2026)</li>
+              <li><strong>scikit-learn</strong> — TF-IDF + classification ML classique</li>
+              <li><strong>NLTK</strong> — académique, riche en outils linguistiques</li>
+              <li><strong>HuggingFace Transformers</strong> — modèles deep learning (BERT, GPT)</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> oublier que le texte français est <strong>accentué</strong>, peut contenir des contractions (<em>l'avis</em>), des emojis. <code>str.lower()</code> ne suffit pas — utilise <code>unicodedata.normalize</code> ou la pipeline spaCy.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> pour la formation Data Analyst, <strong>spaCy + scikit-learn</strong> couvrent 90&nbsp;% des cas. Garde HuggingFace pour les projets avancés.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">setup_nlp.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-bash"># Installation stack NLP
+pip install spacy
+pip install scikit-learn
+pip install nltk
+
+# Modèle français spaCy (à télécharger une fois)
+python -m spacy download fr_core_news_sm    # léger (~15 Mo)
+python -m spacy download fr_core_news_md    # avec vecteurs (~50 Mo)
+
+# Modèle anglais
+python -m spacy download en_core_web_sm
+
+# NLTK — ressources à télécharger
+python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt_tab')"</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. SPACY BASES -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M8 14a4 4 0 0 0 8 0"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>
+          </span>
+          2. spaCy — Tokenisation, lemmatisation, POS
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>spaCy gère <strong>toute la chaîne</strong> en un seul <code>nlp(texte)</code>&nbsp;: tokenisation, lemmes, types grammaticaux, entités nommées. C'est l'outil par défaut en production.</p>
+            <h4>Concepts spaCy :</h4>
+            <ul>
+              <li><strong>Doc</strong>&nbsp;: le texte analysé entier</li>
+              <li><strong>Token</strong>&nbsp;: un mot (a beaucoup d'attributs&nbsp;: <code>.text</code>, <code>.lemma_</code>, <code>.pos_</code>, <code>.is_stop</code>)</li>
+              <li><strong>Span</strong>&nbsp;: un groupe de tokens (phrase, entité)</li>
+              <li><strong>Pipeline</strong>&nbsp;: chaîne de composants (tagger, parser, ner&hellip;)</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> appeler <code>spacy.load()</code> en boucle. Lourd. Charge-le <strong>une seule fois</strong> en début de script, puis réutilise.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> pour traiter des milliers de docs, utilise <code>nlp.pipe(textes, batch_size=50)</code> — bien plus rapide qu'une boucle <code>for</code>.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">spacy_base.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import spacy
+
+# 1. Charger le modèle UNE FOIS
+nlp = spacy.load("fr_core_news_sm")
+
+# 2. Analyser un texte
+texte = "Apple va ouvrir un magasin à Paris en mars 2026."
+doc = nlp(texte)
+
+# 3. Parcourir les tokens
+for token in doc:
+    print(f"{token.text:&lt;12} | lemme={token.lemma_:&lt;12} | "
+          f"pos={token.pos_:&lt;6} | stop={token.is_stop}")
+# Apple        | lemme=Apple        | pos=PROPN  | stop=False
+# va           | lemme=aller        | pos=VERB   | stop=False
+# ouvrir       | lemme=ouvrir       | pos=VERB   | stop=False
+# un           | lemme=un           | pos=DET    | stop=True
+# magasin      | lemme=magasin      | pos=NOUN   | stop=False
+# à            | lemme=à            | pos=ADP    | stop=True
+# Paris        | lemme=Paris        | pos=PROPN  | stop=False
+# ...
+
+# 4. Filtrer (mots utiles seulement)
+mots_utiles = [
+    t.lemma_.lower()
+    for t in doc
+    if not t.is_stop and not t.is_punct and t.is_alpha
+]
+# → ['apple', 'aller', 'ouvrir', 'magasin', 'paris', 'mars']
+
+# 5. Phrases
+for phrase in doc.sents:
+    print(phrase.text)
+
+# 6. Pipe — performance sur gros volume
+textes = ["Texte 1...", "Texte 2...", ...]   # 10k textes
+for doc in nlp.pipe(textes, batch_size=50):
+    ...</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. NER -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+          </span>
+          3. Reconnaissance d'entités (NER)
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Extraire automatiquement <strong>personnes, lieux, organisations, dates, montants</strong> d'un texte libre. Cas d'usage&nbsp;: anonymisation, extraction d'infos depuis CVs, surveillance presse.</p>
+            <h4>Labels spaCy (français) :</h4>
+            <ul>
+              <li><code>PER</code> — personne</li>
+              <li><code>ORG</code> — organisation</li>
+              <li><code>LOC</code> — lieu</li>
+              <li><code>MISC</code> — autres (œuvres, événements)</li>
+              <li>Sur le modèle anglais&nbsp;: <code>DATE</code>, <code>MONEY</code>, <code>GPE</code>, <code>PRODUCT</code></li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> le modèle <code>fr_core_news_sm</code> est entraîné sur Wikipédia/presse — il peut mal reconnaître des noms propres rares ou métiers spécialisés. Pour un domaine vertical, <strong>entraîne un NER custom</strong>.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> combine NER + regex pour anonymisation robuste. Regex couvre les structurés (emails, tels), NER couvre les noms et lieux.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">ner.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import spacy
+from spacy import displacy
+
+nlp = spacy.load("fr_core_news_sm")
+
+texte = """
+Marie Dupont, directrice marketing chez TotalEnergies,
+sera reçue à l'Élysée mercredi prochain pour discuter
+de l'avenir de l'entreprise.
+"""
+doc = nlp(texte)
+
+# 1. Lister les entités
+for ent in doc.ents:
+    print(f"{ent.text:&lt;25} → {ent.label_}")
+# Marie Dupont              → PER
+# TotalEnergies             → ORG
+# Élysée                    → LOC
+
+# 2. Filtrer par type
+personnes = [ent.text for ent in doc.ents if ent.label_ == "PER"]
+orgs = [ent.text for ent in doc.ents if ent.label_ == "ORG"]
+
+# 3. Visualisation Jupyter
+displacy.render(doc, style="ent", jupyter=True)
+
+# 4. Anonymisation par remplacement des entités
+def anonymiser_ner(texte: str, types=("PER", "LOC", "ORG")) -&gt; str:
+    doc = nlp(texte)
+    new_text = texte
+    # On parcourt en sens inverse pour ne pas casser les positions
+    for ent in reversed(doc.ents):
+        if ent.label_ in types:
+            new_text = new_text[:ent.start_char] + f"[{ent.label_}]" + new_text[ent.end_char:]
+    return new_text
+
+print(anonymiser_ner(texte))
+# [PER], directrice marketing chez [ORG], sera reçue à [LOC]...
+
+# 5. Combiner regex + NER (complet)
+import re
+def anonymiser_complet(texte):
+    # Regex d'abord (structurés)
+    texte = re.sub(r"[\w.+-]+@[\w-]+\.[\w.-]+", "[EMAIL]", texte)
+    texte = re.sub(r"(?:\+33|0)[1-9](?:[ .-]?\d{2}){4}", "[TEL]", texte)
+    # Puis NER (non structurés)
+    return anonymiser_ner(texte)</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. TFIDF -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+          </span>
+          4. Vectorisation — Bag of Words &amp; TF-IDF
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Un modèle ML ne comprend pas du texte, seulement des nombres. <strong>Vectoriser</strong> = transformer chaque document en vecteur de fréquences de mots.</p>
+            <h4>Deux approches simples :</h4>
+            <ul>
+              <li><strong>CountVectorizer</strong>&nbsp;: compte brut des mots (Bag of Words)</li>
+              <li><strong>TfidfVectorizer</strong>&nbsp;: pondère par rareté du mot dans le corpus</li>
+              <li>TF-IDF = <em>Term Frequency × Inverse Document Frequency</em></li>
+              <li>Plus moderne&nbsp;: embeddings (Word2Vec, FastText, BERT)</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> appliquer <code>fit_transform</code> sur tout, puis split → fuite de données (les fréquences du test influencent le vocabulaire). Toujours&nbsp;: <code>fit</code> sur train, <code>transform</code> sur test.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> <code>max_features=5000</code> limite le vocabulaire aux mots les plus fréquents — évite l'explosion combinatoire et accélère l'entraînement.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">tfidf.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import classification_report
+
+# Exemple : classification d'avis (positif / négatif)
+df = pd.read_csv("avis.csv")
+X = df["texte"]
+y = df["sentiment"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=42
+)
+
+# 1. Vectoriseur TF-IDF
+vec = TfidfVectorizer(
+    max_features=5000,
+    ngram_range=(1, 2),       # mots seuls + bi-grammes
+    min_df=2,                  # mot doit apparaître ≥ 2 fois
+    max_df=0.9,                # ignore les mots dans &gt; 90% des docs
+    stop_words=None,           # passe une liste personnalisée français
+)
+
+# 2. Pipeline complet (anti-fuite)
+pipe = Pipeline([
+    ("tfidf", vec),
+    ("clf",  LogisticRegression(max_iter=1000, class_weight="balanced")),
+])
+
+pipe.fit(X_train, y_train)
+print(classification_report(y_test, pipe.predict(X_test)))
+
+# 3. Inspecter les mots les plus prédictifs
+clf = pipe.named_steps["clf"]
+feature_names = pipe.named_steps["tfidf"].get_feature_names_out()
+import numpy as np
+top_positifs = np.argsort(clf.coef_[0])[-10:]
+top_negatifs = np.argsort(clf.coef_[0])[:10]
+print("Top positifs :", feature_names[top_positifs])
+print("Top négatifs :", feature_names[top_negatifs])
+
+# 4. Predict sur du texte nouveau
+nouveau = ["Super produit, je recommande !", "Catastrophique, jamais reçu"]
+pipe.predict(nouveau)
+pipe.predict_proba(nouveau)</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. ANALYSE COMPLÈTE -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-pink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 4 4 5-6"/></svg>
+          </span>
+          5. Cas concret — Analyse d'avis clients
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Pipeline classique d'un projet de certif&nbsp;: à partir d'un fichier d'avis bruts, sortir une analyse&nbsp;: top mots, sentiment, sujets récurrents.</p>
+            <h4>Étapes :</h4>
+            <ul>
+              <li>Nettoyage et tokenisation avec spaCy</li>
+              <li>Statistiques&nbsp;: top mots / top bigrammes</li>
+              <li>Classification du sentiment</li>
+              <li>Word cloud pour la restitution</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> ne pas vérifier <strong>la langue</strong> du dataset. Un modèle français sur des avis anglais donne n'importe quoi. Utilise <code>langdetect</code> ou <code>fasttext</code> pour filtrer.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> en oral, présente une <strong>boucle complète</strong>&nbsp;: nettoyage → vectorisation → modèle → métrique → interprétation. Le jury veut voir l'enchaînement.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">analyse_avis.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import spacy
+import pandas as pd
+from collections import Counter
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
+
+nlp = spacy.load("fr_core_news_sm", disable=["parser", "ner"])  # plus rapide
+
+df = pd.read_csv("avis_clients.csv")
+
+# 1. Pré-traitement avec spaCy
+def nettoyer(texte: str) -&gt; list[str]:
+    """Lemmes en minuscules, sans stopwords ni ponctuation."""
+    doc = nlp(texte.lower())
+    return [
+        t.lemma_ for t in doc
+        if t.is_alpha and not t.is_stop and len(t.lemma_) &gt; 2
+    ]
+
+# 2. Application par batch (rapide)
+df["tokens"] = [nettoyer(t) for t in nlp.pipe(df["texte"], batch_size=50)]
+
+# 3. Top mots toutes notes confondues
+tous_mots = [m for liste in df["tokens"] for m in liste]
+print(Counter(tous_mots).most_common(20))
+
+# 4. Top mots par sentiment
+for sentiment in ["positif", "negatif"]:
+    mots = [m for liste in df[df["sentiment"] == sentiment]["tokens"] for m in liste]
+    print(f"\n{sentiment.upper()} :", Counter(mots).most_common(10))
+
+# 5. Classification du sentiment
+df["texte_clean"] = df["tokens"].str.join(" ")
+pipe = Pipeline([
+    ("tfidf", TfidfVectorizer(max_features=3000, ngram_range=(1, 2))),
+    ("clf",   LogisticRegression(max_iter=1000)),
+])
+pipe.fit(df["texte_clean"], df["sentiment"])
+
+# 6. Word cloud pour le rapport
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+wc = WordCloud(width=800, height=400, background_color="white").generate(
+    " ".join(tous_mots)
+)
+plt.figure(figsize=(12, 6))
+plt.imshow(wc)
+plt.axis("off")
+plt.show()</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+         BLOC 3 — ÉTHIQUE IA
+    ========================================================== -->
+    <section class="module" id="module-ethique-ia" hidden>
+      <h1 class="module-title">Éthique IA &amp; Biais algorithmiques</h1>
+      <p class="module-subtitle">Détecter, mesurer et corriger les biais. Explicabilité, fairness, IA Act. <strong>Compétence Bloc 3 du RNCP 37429</strong>.</p>
+
+      <!-- 1. BIAIS -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 12h14"/></svg>
+          </span>
+          1. Types de biais
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Un modèle apprend ce qu'on lui montre. Si les données sont biaisées, le modèle reproduit (voire amplifie) ces biais. Affaires célèbres&nbsp;: Amazon CV rejetant les femmes, COMPAS discriminant les afro-américains.</p>
+            <h4>Six biais majeurs :</h4>
+            <ul>
+              <li><strong>Biais historique</strong>&nbsp;: discriminations passées dans les données</li>
+              <li><strong>Biais de représentation</strong>&nbsp;: certaines catégories sous-représentées</li>
+              <li><strong>Biais de mesure</strong>&nbsp;: variables proxy problématiques (ex&nbsp;: code postal proxy d'origine)</li>
+              <li><strong>Biais d'agrégation</strong>&nbsp;: modèle global ignore les sous-groupes</li>
+              <li><strong>Biais de confirmation</strong>&nbsp;: on cherche ce qui confirme nos hypothèses</li>
+              <li><strong>Biais de déploiement</strong>&nbsp;: usage en pratique différent de l'entraînement</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> retirer la colonne « sexe » ou « origine » ne supprime pas le biais — d'autres variables (prénom, code postal) sont des <strong>proxies</strong>. C'est le piège du « <em>fairness through unawareness</em> ».</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> mémorise la phrase&nbsp;<em>« Garbage in, garbage out — biais in, biais out. »</em> Un modèle est aussi équitable que ses données.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">types_biais.md</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-bash"># EXEMPLES RÉELS DE BIAIS ALGORITHMIQUES
+
+## Amazon (2018) — CV filtering
+# Modèle entraîné sur 10 ans de CVs (majoritairement masculins)
+# → pénalise les CVs avec "women's" (club étudiant féminin, etc.)
+# Conséquence : Amazon abandonne l'outil
+
+## COMPAS (2016) — récidive aux USA
+# Algorithme prédit le risque de récidive
+# Étude ProPublica : 2× plus de "faux positifs" chez Afro-Américains
+# → biais historique du système judiciaire reflété
+
+## Apple Card (2019) — limite de crédit
+# Femmes obtenaient des limites plus basses que leur conjoint
+# (même compte joint, mêmes revenus)
+# → modèle entraîné sur un historique sexiste
+
+## CV scoring chatbots (2024)
+# Outils IA notent moins bien les CV portant des prénoms maghrébins
+# → biais historique du recrutement reproduit
+
+# LEÇONS
+# 1. Données = miroir du monde, pas vérité objective
+# 2. Retirer la variable sensible NE SUFFIT PAS (proxies)
+# 3. Mesurer = pré-requis pour corriger
+# 4. Documenter les choix dans une "Model Card" / "Data Card"</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. MÉTRIQUES FAIRNESS -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M6 12h12M9 18h6"/></svg>
+          </span>
+          2. Métriques de fairness
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Mesurer un biais nécessite une <strong>métrique formelle</strong>. Plusieurs définitions existent, parfois incompatibles entre elles — il faut choisir selon le contexte métier.</p>
+            <h4>Trois métriques principales :</h4>
+            <ul>
+              <li><strong>Demographic Parity</strong>&nbsp;: même taux de prédictions positives par groupe</li>
+              <li><strong>Equal Opportunity</strong>&nbsp;: même taux de vrais positifs par groupe</li>
+              <li><strong>Equalized Odds</strong>&nbsp;: même TPR <em>et</em> même FPR par groupe</li>
+              <li><strong>Disparate Impact</strong>&nbsp;: règle des 4/5 (US legal)</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> théorème d'<strong>impossibilité</strong> — on ne peut pas satisfaire <em>demographic parity</em> + <em>equalized odds</em> simultanément (sauf cas dégénéré). Choisir explicitement quelle équité on veut.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> outils 2026&nbsp;: <code>fairlearn</code> (Microsoft), <code>aif360</code> (IBM). À mentionner à l'oral.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">fairness.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import pandas as pd
+
+# Données fictives : prédictions vs réalité par sexe
+df = pd.DataFrame({
+    "sexe":      ["F", "F", "F", "F", "H", "H", "H", "H"],
+    "y_vrai":    [1, 0, 1, 1, 1, 1, 0, 0],
+    "y_predit":  [0, 0, 1, 0, 1, 1, 1, 0],
+})
+
+# 1. Demographic Parity — taux de prédictions positives par groupe
+taux_positifs = df.groupby("sexe")["y_predit"].mean()
+print(taux_positifs)
+# sexe
+# F    0.25
+# H    0.75    ← énorme écart
+
+# 2. Disparate Impact (règle des 4/5 — seuil USA)
+dispar = taux_positifs.min() / taux_positifs.max()
+print(f"Disparate Impact : {dispar:.2f}")
+# 0.33 → loin de 0.8 (seuil légal US)
+
+# 3. Equal Opportunity — taux de vrais positifs par groupe
+def tpr(group):
+    pos = group[group["y_vrai"] == 1]
+    return (pos["y_predit"] == 1).mean()
+
+tpr_par_groupe = df.groupby("sexe").apply(tpr)
+print(tpr_par_groupe)
+# F    0.33
+# H    1.00    ← femmes acceptées 3× moins même si méritantes
+
+# 4. Avec fairlearn (recommandé)
+# pip install fairlearn
+from fairlearn.metrics import (
+    demographic_parity_difference,
+    equalized_odds_difference,
+    MetricFrame,
+)
+from sklearn.metrics import accuracy_score
+
+# Métrique globale par groupe
+mf = MetricFrame(
+    metrics={"accuracy": accuracy_score},
+    y_true=df["y_vrai"],
+    y_pred=df["y_predit"],
+    sensitive_features=df["sexe"],
+)
+print(mf.by_group)
+print("Écart demographic parity :",
+      demographic_parity_difference(
+          df["y_vrai"], df["y_predit"], sensitive_features=df["sexe"]
+      ))</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. EXPLICABILITÉ -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><circle cx="11" cy="11" r="3"/></svg>
+          </span>
+          3. Explicabilité — SHAP &amp; LIME
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Un modèle « boîte noire » sans explication = inacceptable en santé, finance, justice, RH. L'<strong>explicabilité</strong> permet de comprendre <em>pourquoi</em> un modèle a pris une décision.</p>
+            <h4>Outils standards 2026 :</h4>
+            <ul>
+              <li><code>feature_importances_</code> (RandomForest, XGBoost) — global</li>
+              <li><strong>SHAP</strong> (SHapley Additive exPlanations) — global + local</li>
+              <li><strong>LIME</strong> (Local Interpretable Model-agnostic Explanations) — local</li>
+              <li><strong>Partial Dependence Plots</strong> (sklearn) — effet d'une variable</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> confondre <strong>importance</strong> (« cette variable compte ») et <strong>causalité</strong> (« cette variable cause »). Une variable importante peut être un proxy d'une autre.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> l'<strong>IA Act européen</strong> exige des explications pour les IA à haut risque. Mentionner l'explicabilité = bon réflexe RGPD/IA Act.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">explicabilite.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">from sklearn.ensemble import RandomForestClassifier
+from sklearn.inspection import permutation_importance, PartialDependenceDisplay
+import matplotlib.pyplot as plt
+
+# Modèle entraîné
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf.fit(X_train, y_train)
+
+# 1. Feature importance — global
+import pandas as pd
+imp = pd.Series(rf.feature_importances_, index=X.columns)
+imp.sort_values(ascending=True).plot.barh(figsize=(8, 6))
+plt.title("Importance des features")
+plt.show()
+
+# 2. Permutation importance — plus robuste
+perm = permutation_importance(rf, X_test, y_test, n_repeats=10, random_state=42)
+imp_perm = pd.Series(perm.importances_mean, index=X.columns)
+imp_perm.sort_values().plot.barh()
+
+# 3. Partial Dependence Plot — effet d'une variable
+PartialDependenceDisplay.from_estimator(
+    rf, X_train,
+    features=["age", "revenu"],
+    grid_resolution=30,
+)
+plt.show()
+
+# 4. SHAP — explication locale
+# pip install shap
+import shap
+explainer = shap.TreeExplainer(rf)
+shap_values = explainer.shap_values(X_test)
+
+# Plot global (top features par impact)
+shap.summary_plot(shap_values, X_test)
+
+# Plot local — pourquoi cette prédiction ?
+shap.force_plot(
+    explainer.expected_value[1],
+    shap_values[1][0],
+    X_test.iloc[0],
+)
+# → pour le 1er échantillon : quelles variables ont poussé la prédiction</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. IA ACT -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          4. IA Act européen — Classification par risque
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Le <strong>règlement européen sur l'IA</strong> (entrée en vigueur août 2024, applicable progressivement jusqu'en 2027) classifie les systèmes IA en 4 niveaux de risque avec obligations associées.</p>
+            <h4>Les 4 niveaux :</h4>
+            <ul>
+              <li><strong>Risque inacceptable</strong>&nbsp;: interdit (notation sociale, manipulation, biométrie temps réel publique)</li>
+              <li><strong>Haut risque</strong>&nbsp;: santé, éducation, RH, justice, infrastructures — obligations strictes</li>
+              <li><strong>Risque limité</strong>&nbsp;: chatbots, deepfakes — obligation de transparence (informer l'utilisateur)</li>
+              <li><strong>Risque minimal</strong>&nbsp;: jeux, filtres anti-spam — libre</li>
+            </ul>
+            <h4>Obligations pour le haut risque :</h4>
+            <ul>
+              <li>Système de gestion des risques documenté</li>
+              <li>Qualité des données d'entraînement</li>
+              <li>Documentation technique (model card)</li>
+              <li>Traçabilité (logs des prédictions)</li>
+              <li>Supervision humaine</li>
+              <li>Robustesse, précision, cybersécurité</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> ignorer le risque si « ce n'est pas vraiment de l'IA ». Le règlement couvre <strong>les systèmes de décision algorithmique</strong> — un scoring de candidats avec régression logistique compte aussi.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> bonne réponse à « comment garantir une IA responsable ? » — <em>« Classifier par risque selon l'IA Act, documenter (data card, model card), mesurer les biais (fairlearn), expliquer (SHAP), garder un humain dans la boucle. »</em></div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">ia_act.md</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-bash"># MODEL CARD type (à fournir avec un modèle haut risque)
+
+## Identification
+- Nom : Modèle de scoring crédit v2.3
+- Version : 2026.05.01
+- Date d'entraînement : 2026-04-15
+- Responsable : oneup (Data Analyst)
+- Niveau IA Act : Haut risque (décision automatisée crédit)
+
+## Objectif &amp; cas d'usage prévu
+- Estimer la probabilité de défaut sur prêt personnel
+- Outil d'AIDE à la décision (humain valide chaque dossier)
+
+## Données d'entraînement
+- Source : portefeuille interne 2020-2025
+- Volume : 250 000 dossiers
+- Préparation : imputation médiane, encoding catégoriel
+- Biais connus : sous-représentation tranche 18-25 ans (4%)
+
+## Performance
+- AUC : 0.85 (test holdout)
+- Accuracy : 0.78
+- Recall classe positive : 0.71
+
+## Fairness
+- Demographic parity (sexe) : Δ = 0.03
+- Equal opportunity (sexe)  : Δ = 0.02
+- Demographic parity (âge)  : Δ = 0.12 ← À surveiller
+
+## Limitations
+- Non testé sur clients étrangers
+- Pas adapté aux prêts professionnels
+- Performance se dégrade au-delà de 2027 (concept drift)
+
+## Décisions du modèle
+- Explication SHAP disponible pour chaque prédiction
+- Recours humain garanti (article 22 RGPD)
+
+## Suivi en production
+- Re-entraînement annuel
+- Monitoring fairness mensuel
+- Audit externe biannuel</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================================
          BLOC 4
     ========================================================== -->
     <section class="module" id="module-matplotlib-seaborn" hidden>
@@ -7986,6 +9532,407 @@ for ville in df["ville"].unique():
     f = px.scatter(sub, x="surface", y="prix",
                    title=f"Marché — {ville}")
     f.write_html(f"rapport/{ville}.html", include_plotlyjs="cdn")</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="module" id="module-folium" hidden>
+      <h1 class="module-title">Folium &amp; Cartographie</h1>
+      <p class="module-subtitle">Cartes interactives Python via Leaflet.js. <strong>Compétence Bloc 4 du RNCP 37429</strong>. Bonus&nbsp;: accessibilité dataviz.</p>
+
+      <!-- 1. BASES -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          1. Carte de base &amp; markers
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Folium produit une carte HTML interactive (zoom, pan, popup) en quelques lignes. Idéal pour analyser des données géolocalisées&nbsp;: clients par ville, capteurs IoT, accidents, magasins.</p>
+            <h4>Concepts :</h4>
+            <ul>
+              <li><code>folium.Map(location, zoom_start)</code> — la carte (lat, lon)</li>
+              <li><code>folium.Marker</code> — épingle classique</li>
+              <li><code>folium.CircleMarker</code> — cercle dimensionné (variable continue)</li>
+              <li><code>tooltip</code> (au survol) vs <code>popup</code> (au clic)</li>
+              <li><code>m.save("carte.html")</code> — export</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> coordonnées dans l'ordre [lat, lon] et pas [lon, lat] (inverse de GeoJSON). Confusion classique qui place tes points en pleine mer.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> mémorise les coordonnées de Paris&nbsp;: <code>[48.8566, 2.3522]</code>. Sert de défaut pour la France.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">folium_base.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import folium
+import pandas as pd
+
+# 1. Carte centrée sur Paris
+m = folium.Map(
+    location=[48.8566, 2.3522],
+    zoom_start=12,
+    tiles="OpenStreetMap",         # défaut. Autres : "CartoDB positron"
+)
+
+# 2. Marker simple
+folium.Marker(
+    location=[48.8566, 2.3522],
+    tooltip="Paris",                # survol
+    popup="Capitale française",     # clic
+    icon=folium.Icon(color="red", icon="info-sign"),
+).add_to(m)
+
+# 3. CircleMarker — dimension proportionnelle
+folium.CircleMarker(
+    location=[48.85, 2.35],
+    radius=15,                      # en pixels
+    fill=True,
+    fill_color="blue",
+    fill_opacity=0.5,
+    color="darkblue",
+    popup="Magasin avec 1500 clients",
+).add_to(m)
+
+# 4. Boucle sur un DataFrame
+df = pd.read_csv("magasins.csv")    # colonnes : nom, lat, lon, ca
+for _, row in df.iterrows():
+    folium.CircleMarker(
+        location=[row["lat"], row["lon"]],
+        radius=row["ca"] / 10000,   # taille = CA / 10k
+        popup=f"{row['nom']} — {row['ca']:,.0f} €",
+        fill=True, fill_color="green", fill_opacity=0.6,
+    ).add_to(m)
+
+# 5. Sauvegarde HTML
+m.save("magasins.html")
+
+# 6. Dans un notebook Jupyter : juste retourner m
+m</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. CHOROPLETH -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+          </span>
+          2. Choropleth — Carte colorée par zone
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Une <strong>carte choroplèthe</strong> colore chaque zone (département, région, pays) selon une valeur. Standard pour visualiser des données socio-démographiques, économiques, démographiques.</p>
+            <h4>Ingrédients :</h4>
+            <ul>
+              <li><strong>GeoJSON</strong>&nbsp;: contours des zones (départements, régions)</li>
+              <li><strong>DataFrame</strong>&nbsp;: clé + valeur par zone</li>
+              <li><strong>Jointure</strong>&nbsp;: <code>key_on=</code> indique le champ GeoJSON à matcher</li>
+            </ul>
+            <h4>Sources GeoJSON gratuites :</h4>
+            <ul>
+              <li><strong>France GEOJSON</strong> de Grégoire David (départements, régions)</li>
+              <li><strong>Natural Earth</strong> pour pays</li>
+              <li><strong>IGN AdminExpress</strong> pour France haute précision</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> erreur la plus fréquente — <code>key_on</code> mal défini. Doit pointer dans le GeoJSON, format <code>feature.properties.code</code>. Inspecte ton GeoJSON&nbsp;: <code>print(geo["features"][0]["properties"])</code>.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> <strong>palette accessible</strong> daltoniens&nbsp;: <code>"YlOrRd"</code>, <code>"Blues"</code>, <code>"Viridis"</code>. Évite rouge/vert seul (~8&nbsp;% des hommes daltoniens).</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">choropleth.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import folium
+import pandas as pd
+import requests
+
+# 1. Charger le GeoJSON des départements français
+url = "https://france-geojson.gregoiredavid.fr/repo/departements.geojson"
+geo = requests.get(url).json()
+
+# Inspecter la structure
+print(geo["features"][0]["properties"])
+# {'code': '01', 'nom': 'Ain'}
+
+# 2. Données métier par département
+df = pd.read_csv("ca_par_dept.csv")    # colonnes : dept_code, ca
+df["dept_code"] = df["dept_code"].astype(str).str.zfill(2)   # "1" → "01"
+
+# 3. Créer la carte
+m = folium.Map(location=[46.5, 2.5], zoom_start=6, tiles="CartoDB positron")
+
+# 4. Choropleth
+folium.Choropleth(
+    geo_data=geo,
+    name="CA par département",
+    data=df,
+    columns=["dept_code", "ca"],
+    key_on="feature.properties.code",    # match GeoJSON ↔ DataFrame
+    fill_color="YlOrRd",                  # accessible daltoniens
+    fill_opacity=0.7,
+    line_opacity=0.3,
+    legend_name="CA 2025 (€)",
+    bins=6,
+    highlight=True,                       # surbrillance au survol
+    nan_fill_color="#dddddd",
+).add_to(m)
+
+# 5. Contrôle des couches
+folium.LayerControl().add_to(m)
+
+m.save("ca_par_dept.html")</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. HEATMAP & CLUSTERS -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-pink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7" opacity="0.4"/><circle cx="12" cy="12" r="10" opacity="0.2"/></svg>
+          </span>
+          3. Heatmap &amp; MarkerCluster
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Pour <strong>milliers de points</strong>, les markers individuels saturent. Deux solutions&nbsp;: <strong>HeatMap</strong> (densité), <strong>MarkerCluster</strong> (regroupement dynamique).</p>
+            <h4>Plugins Folium :</h4>
+            <ul>
+              <li><code>folium.plugins.HeatMap</code> — densité de points</li>
+              <li><code>folium.plugins.MarkerCluster</code> — clusters expandables</li>
+              <li><code>folium.plugins.MiniMap</code> — mini-carte de navigation</li>
+              <li><code>folium.plugins.MeasureControl</code> — règle de mesure</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> HeatMap attend une <strong>liste de [lat, lon]</strong> ou <strong>[lat, lon, poids]</strong>, pas un DataFrame. Conversion&nbsp;: <code>df[["lat", "lon"]].values.tolist()</code>.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> au-delà de 10&nbsp;000 markers, Folium devient lent (rendu côté client). Pour des volumes massifs, passe à <code>kepler.gl</code> ou un backend tuiles vectorielles.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">heatmap_cluster.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import folium
+from folium.plugins import HeatMap, MarkerCluster, MiniMap
+import pandas as pd
+
+df = pd.read_csv("ventes.csv")    # 50 000 lignes avec lat/lon
+
+m = folium.Map(location=[46.5, 2.5], zoom_start=6)
+
+# 1. HeatMap — densité
+heat_data = df[["lat", "lon"]].values.tolist()
+HeatMap(
+    heat_data,
+    radius=15,
+    blur=10,
+    min_opacity=0.4,
+    name="Densité de ventes",
+).add_to(m)
+
+# Avec poids (par exemple le montant)
+heat_pondere = df[["lat", "lon", "montant"]].values.tolist()
+HeatMap(heat_pondere, name="Densité pondérée").add_to(m)
+
+# 2. MarkerCluster — clusters dynamiques
+cluster = MarkerCluster(name="Ventes individuelles").add_to(m)
+for _, row in df.iterrows():
+    folium.Marker(
+        location=[row["lat"], row["lon"]],
+        popup=f"{row['nom']} — {row['montant']:,.0f} €",
+    ).add_to(cluster)
+
+# 3. MiniMap (utile pour de gros zooms)
+MiniMap(toggle_display=True).add_to(m)
+
+# 4. Contrôle de couches
+folium.LayerControl().add_to(m)
+
+m.save("ventes_densite.html")</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. GEOPANDAS -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6 3 6-3 6 3M9 9v12M15 6v12"/></svg>
+          </span>
+          4. GeoPandas — Données géo en DataFrame
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p><strong>GeoPandas</strong> = Pandas + géométries (points, lignes, polygones). Permet d'importer des shapefiles, faire des jointures spatiales, et exporter en GeoJSON pour Folium.</p>
+            <h4>Opérations clés :</h4>
+            <ul>
+              <li><code>gpd.read_file("file.shp")</code> — shapefile, GeoJSON, GeoPackage</li>
+              <li>Colonne <code>geometry</code> avec les formes</li>
+              <li><code>gdf.to_crs(epsg=4326)</code> — projection lat/lon</li>
+              <li><code>gpd.sjoin(a, b, how="left")</code> — jointure spatiale (within, contains)</li>
+              <li><code>gdf.explore()</code> — carte Folium en une commande</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> projections incompatibles. Le standard web est <strong>EPSG:4326</strong> (WGS84, lat/lon). Les shapefiles français sont souvent en <strong>EPSG:2154</strong> (Lambert 93). Convertis avec <code>to_crs</code>.</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> <code>gdf.explore()</code> est le <code>df.plot()</code> géographique — une carte interactive Folium en UNE ligne. Magique pour un EDA rapide.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">geopandas.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python"># pip install geopandas
+import geopandas as gpd
+import pandas as pd
+
+# 1. Charger un fichier géographique
+gdf = gpd.read_file("departements.geojson")
+print(gdf.head())
+print(gdf.crs)              # CRS = Coordinate Reference System
+# → EPSG:4326 (WGS84) si lat/lon
+
+# 2. Convertir vers WGS84 si nécessaire
+gdf = gdf.to_crs(epsg=4326)
+
+# 3. Joindre avec des données métier
+df_ca = pd.read_csv("ca_par_dept.csv")
+gdf = gdf.merge(df_ca, left_on="code", right_on="dept_code")
+
+# 4. Visualisation rapide (Folium intégré)
+gdf.explore(
+    column="ca",
+    cmap="YlOrRd",
+    legend=True,
+    tooltip=["nom", "ca"],
+    style_kwds={"fillOpacity": 0.7},
+)
+
+# 5. Jointure spatiale : à quel département appartient chaque vente ?
+ventes = pd.read_csv("ventes.csv")
+gdf_ventes = gpd.GeoDataFrame(
+    ventes,
+    geometry=gpd.points_from_xy(ventes.lon, ventes.lat),
+    crs="EPSG:4326",
+)
+ventes_avec_dept = gpd.sjoin(gdf_ventes, gdf, how="left", predicate="within")
+
+# 6. Agréger par département
+ca_par_dept = ventes_avec_dept.groupby("code")["montant"].sum()</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. ACCESSIBILITÉ -->
+      <div class="card notion-card">
+        <h2 class="notion-title">
+          <span class="notion-icon icon-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+          </span>
+          5. Accessibilité dataviz
+        </h2>
+        <div class="notion-body">
+          <div class="notion-text">
+            <h3>Pourquoi c'est important ?</h3>
+            <p>Le RNCP 37429 mentionne explicitement <strong>l'accessibilité visuelle</strong>. ~8&nbsp;% des hommes sont daltoniens. Une dataviz inaccessible exclut une part significative du public — et c'est légalement attendu (RGAA en France).</p>
+            <h4>Bonnes pratiques :</h4>
+            <ul>
+              <li><strong>Palettes accessibles</strong>&nbsp;: Viridis, Cividis, ColorBrewer (Blues, YlOrRd, etc.)</li>
+              <li><strong>Pas que la couleur</strong>&nbsp;: ajoute forme, motif, label</li>
+              <li><strong>Contraste suffisant</strong>&nbsp;: ratio ≥ 4.5 (WCAG AA)</li>
+              <li><strong>Taille de texte</strong>&nbsp;: 12 pt minimum</li>
+              <li><strong>Légendes claires</strong>&nbsp;: unités, dates</li>
+              <li><strong>Alt-text</strong> pour les graphes en HTML</li>
+            </ul>
+            <div class="alert alert-warn">
+              <span class="alert-icon">⚠</span>
+              <div class="alert-body"><strong>Piège classique :</strong> palette <strong>rouge/vert</strong> pour bon/mauvais — invisible pour les daltoniens deutéranopes. Utilise rouge/bleu ou ajoute des symboles (✓ ✗).</div>
+            </div>
+            <div class="alert alert-tip">
+              <span class="alert-icon">💡</span>
+              <div class="alert-body"><strong>Astuce certif :</strong> outils — <a href="https://colorbrewer2.org" style="color:var(--color-accent)">ColorBrewer2.org</a> pour palettes scientifiques, <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/" style="color:var(--color-accent)">Coblis</a> pour simuler la vision daltonienne sur ton image.</div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-filename">accessibilite.py</span>
+              <button class="code-copy" aria-label="Copier"></button>
+            </div>
+            <pre><code class="language-python">import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Palettes accessibles
+sns.set_palette("colorblind")       # palette spécifique
+# Autres bons choix : "viridis", "cividis", "magma"
+
+# 2. Mauvaise pratique (couleur seule)
+# ❌ Rouge / Vert pour positif / négatif → invisible daltoniens
+plt.plot(x, y_positif, color="red")
+plt.plot(x, y_negatif, color="green")
+
+# ✅ Couleur + forme + label
+plt.plot(x, y_positif, color="#0072B2", marker="o", label="Positif (+)")
+plt.plot(x, y_negatif, color="#D55E00", marker="x", label="Négatif (-)")
+plt.legend()
+
+# 3. Annotations explicites
+for x_val, y_val in points_clefs:
+    plt.annotate(
+        f"{y_val:.0f} €",
+        xy=(x_val, y_val),
+        fontsize=11,
+        fontweight="bold",
+    )
+
+# 4. Titre + sous-titre + source
+fig.suptitle("CA mensuel 2025", fontsize=14, fontweight="bold")
+fig.text(0.5, 0.92, "Source : interne, données arrêtées 31/12/2025",
+         ha="center", fontsize=9, color="gray")
+
+# 5. Pour Folium — palettes accessibles
+folium.Choropleth(
+    ...
+    fill_color="YlOrRd",       # ColorBrewer, daltonien-friendly
+    # Autres bons : "Blues", "PuBu", "YlGnBu", "viridis"
+).add_to(m)
+
+# 6. Tester sa palette
+# Outil en ligne : coblis-color-blindness-simulator
+# Ou en local :
+# pip install daltonlens
+from daltonlens import simulate, convert
+# img_simulee = simulate.simulate_cvd(img, "deuteranopia")</code></pre>
           </div>
         </div>
       </div>
