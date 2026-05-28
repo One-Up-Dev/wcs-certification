@@ -411,7 +411,7 @@ WHERE ville = 'Paris' OR ville = 'Lyon' AND ca_2025 &gt; 50000;
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
-              <div class="alert-body"><strong>Piège classique :</strong> <code>LIKE</code> est sensible à la casse en PostgreSQL (mais pas en MySQL/SQLite par défaut). Utilise <code>ILIKE</code> en PostgreSQL ou <code>LOWER(col) LIKE LOWER('motif')</code> pour la portabilité.</div>
+              <div class="alert-body"><strong>Piège classique :</strong> <code>LIKE</code> est sensible à la casse en PostgreSQL ; en MySQL cela dépend de la <strong>collation</strong> de la colonne (<code>_ci</code> = insensible, <code>_bin</code>/<code>_cs</code> = sensible), et SQLite est insensible par défaut. Utilise <code>ILIKE</code> en PostgreSQL ou <code>LOWER(col) LIKE LOWER('motif')</code> pour la portabilité.</div>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
@@ -859,7 +859,7 @@ GROUP BY ville;</code></pre>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
-              <div class="alert-body"><strong>Astuce certif :</strong> <code>AVG(prix)</code> arrondit selon le type. Sur des <code>INTEGER</code>, le résultat peut être tronqué. Force le float&nbsp;: <code>AVG(prix * 1.0)</code> ou <code>AVG(CAST(prix AS DECIMAL))</code>.</div>
+              <div class="alert-body"><strong>Astuce certif :</strong> <code>AVG(prix)</code> sur des <code>INTEGER</code> peut être tronqué en <strong>SQLite</strong> (division entière) — PostgreSQL, lui, renvoie un <code>numeric</code> sans troncature. Bonne pratique quel que soit le SGBD&nbsp;: force le float avec <code>AVG(prix * 1.0)</code> ou <code>AVG(CAST(prix AS DECIMAL))</code>.</div>
             </div>
           </div>
           <div class="code-block">
@@ -7040,7 +7040,7 @@ df["commentaire_clean"] = df["commentaire"].apply(anonymiser)</code></pre>
             <h4>Règles PEP 8 essentielles :</h4>
             <ul>
               <li><strong>Indentation</strong> : 4 espaces (jamais de tabs)</li>
-              <li><strong>Longueur de ligne</strong> : 79 caractères (ou 99 en pratique)</li>
+              <li><strong>Longueur de ligne</strong> : 79 caractères selon PEP&nbsp;8 strict ; <strong>88</strong> par défaut pour Black/Ruff ; 99 ou 120 dans certaines équipes (ex. Django)</li>
               <li><strong>Nommage</strong> : <code>snake_case</code> variables/fonctions, <code>PascalCase</code> classes, <code>UPPER_CASE</code> constantes</li>
               <li><strong>Imports</strong> : un par ligne, groupés (stdlib / tiers / locaux)</li>
               <li><strong>2 lignes vides</strong> entre fonctions de niveau module</li>
@@ -8128,7 +8128,7 @@ df.groupby("ville").agg(
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
-              <div class="alert-body"><strong>Règle empirique 68-95-99,7 :</strong> sur une distribution normale, 68&nbsp;% des données sont dans <code>µ ± 1σ</code>, 95&nbsp;% dans <code>µ ± 2σ</code>, 99,7&nbsp;% dans <code>µ ± 3σ</code>. Utile pour évaluer rapidement la dispersion d'un échantillon.</div>
+              <div class="alert-body"><strong>Règle empirique 68-95-99,7 :</strong> sur une distribution normale, 68&nbsp;% des données sont dans <code>µ ± 1σ</code>, 95&nbsp;% dans <code>µ ± 2σ</code> (valeur exacte&nbsp;: ±&nbsp;1,96σ donne exactement 95&nbsp;%, ±&nbsp;2σ donne ~95,45&nbsp;%), 99,7&nbsp;% dans <code>µ ± 3σ</code>. Utile pour évaluer rapidement la dispersion d'un échantillon.</div>
             </div>
           </div>
           <div class="code-block">
@@ -9422,7 +9422,7 @@ print(f"Accuracy : {modele.score(X_test, y_test):.3f}")
 
 # 2. Trouver le meilleur K
 grille = {"kneighborsclassifier__n_neighbors": range(1, 30, 2)}
-gs = GridSearchCV(modele, grille, cv=5, scoring="f1")
+gs = GridSearchCV(modele, grille, cv=5, scoring="f1")  # binaire uniquement — multi-classe : "f1_macro" ou "f1_weighted"
 gs.fit(X_train, y_train)
 print(f"Meilleur K : {gs.best_params_}")
 
@@ -12975,10 +12975,11 @@ HeatMap(heat_pondere, name="Densité pondérée").add_to(m)
 
 # 2. MarkerCluster — clusters dynamiques
 cluster = MarkerCluster(name="Ventes individuelles").add_to(m)
-for _, row in df.iterrows():
+# itertuples() est ~10× plus rapide qu'iterrows() sur 50 000 lignes
+for row in df.itertuples():
     folium.Marker(
-        location=[row["lat"], row["lon"]],
-        popup=f"{row['nom']} — {row['montant']:,.0f} €",
+        location=[row.lat, row.lon],
+        popup=f"{row.nom} — {row.montant:,.0f} €",
     ).add_to(cluster)
 
 # 3. MiniMap (utile pour de gros zooms)
@@ -13872,7 +13873,7 @@ Ventes[Ville] = RELATED(Clients[Ville])
 =SI.CONDITIONS(B2&gt;5000; "Premium";
                B2&gt;1000; "Pro";
                VRAI;     "Standard")
-=SIERREUR(A2/B2; 0)                   # 0 si division par zéro
+=SIERREUR(A2/B2; 0)                   # 0 si erreur (incluant division par zéro, #N/A, #VALEUR!, etc.)
 
 # --- TEXTE ---
 =CONCAT(A2; " - "; B2)                # "Alice - Paris"
@@ -14087,7 +14088,7 @@ Ctrl + Shift + L  → activer les filtres
 F4                → basculer absolue/relative ($A$1 ↔ A1)
 Ctrl + ;          → date du jour
 Ctrl + Shift + :  → heure actuelle
-Ctrl + T          → Tableau (selon version)
+Ctrl + T          → Tableau (version EN) / Ctrl+L en FR
 Ctrl + Maj + Entrée → formule matricielle (legacy)
 Alt + =           → SOMME auto
 Ctrl + Flèche     → fin de la plage de données
@@ -14472,7 +14473,7 @@ sauf en avril 2026 où l'on observe une chute de 14%.
 # • → 22 faux positifs : on appelle des clients fidèles "pour rien"
 #   Coût : 22 × 5€ (appel commercial) = 110€
 #   Bénéfice : 87 × 200€ (LTV sauvée) = 17 400€
-#   ROI : ×158
+#   ROI : (17 400€ - 110€) / 110€ ≈ ×157 — soit (bénéfice - coût) / coût
 
 # --- AVEC SHAP (explication individuelle) ---
 import shap
