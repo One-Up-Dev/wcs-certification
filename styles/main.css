@@ -3,11 +3,11 @@
 ========================================================= */
 :root {
   /* Couleurs sidebar */
-  --color-sidebar-bg: #0f172a;
-  --color-sidebar-text: #94a3b8;
+  --color-sidebar-bg: #1c1c1e;
+  --color-sidebar-text: #a1a1aa;
   --color-sidebar-active-text: #ffffff;
-  --color-sidebar-section: #475569;
-  --color-sidebar-hover-bg: rgba(148, 163, 184, 0.08);
+  --color-sidebar-section: #6b7280;
+  --color-sidebar-hover-bg: rgba(255, 255, 255, 0.06);
 
   /* Couleurs accent */
   --color-accent: #f91f4b;
@@ -22,9 +22,9 @@
   --color-border: #e2e8f0;
 
   /* Couleurs code */
-  --color-code-bg: #1e1e2e;
-  --color-code-header-bg: #181825;
-  --color-code-text: #e2e8f0;
+  --color-code-bg: #1f1815;
+  --color-code-header-bg: #18120f;
+  --color-code-text: #e7e2dd;
 
   /* Couleurs alertes */
   --color-warn-border: #f59e0b;

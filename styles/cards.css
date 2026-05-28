@@ -178,9 +178,10 @@
   display: flex;
   gap: 12px;
   padding: 14px 18px;
-  border-radius: 8px;
+  border-radius: 2px;
   margin: 16px 0;
-  border-left: 4px solid;
+  background: #f1f5f9;
+  border: 1px solid #e5e7eb;
   font-size: 0.9rem;
   line-height: 1.55;
 }
@@ -191,10 +192,10 @@
   line-height: 1.4;
 }
 
+.alert-warn .alert-icon { color: #b45309; }
+.alert-tip  .alert-icon { color: #047857; }
+.alert-info .alert-icon { color: #1d4ed8; }
+
 .alert-body { flex: 1; color: var(--color-text-secondary); }
 .alert-body strong { color: var(--color-text-primary); display: inline; }
 .alert-body p { margin-bottom: 0; color: inherit; }
-
-.alert-warn { background: var(--color-warn-bg); border-color: var(--color-warn-border); }
-.alert-tip  { background: var(--color-tip-bg);  border-color: var(--color-tip-border); }
-.alert-info { background: var(--color-info-bg); border-color: var(--color-info-border); }
