@@ -440,7 +440,7 @@ WHERE nom LIKE '%pro%';
 -- 4. Joker un caractère
 SELECT * FROM produits
 WHERE reference LIKE 'P_2025';
--- → P1 2025, PA 2025… mais PAS PRO 2025
+-- → P12025, PA2025… mais PAS PRO2025 (3 chars après P)
 
 -- 5. Insensible à la casse (PostgreSQL)
 SELECT * FROM clients
@@ -1186,7 +1186,7 @@ LEFT JOIN commandes cmd
               <li><code>RIGHT JOIN</code>&nbsp;: lignes de droite toujours présentes</li>
               <li><code>FULL OUTER JOIN</code>&nbsp;: union des deux LEFT + RIGHT</li>
               <li>Tout <code>RIGHT JOIN</code> peut être réécrit en <code>LEFT JOIN</code> en inversant l'ordre des tables — c'est <strong>la convention</strong> en pro</li>
-              <li><code>FULL OUTER JOIN</code> non supporté par MySQL avant 8.0 — utiliser <code>UNION</code></li>
+              <li><code>FULL OUTER JOIN</code> non supporté par MySQL (toutes versions) — simuler avec <code>LEFT JOIN UNION RIGHT JOIN</code></li>
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
@@ -1632,7 +1632,7 @@ SELECT 'Panier moyen',         AVG(montant)      FROM commandes;
 #   COMMANDE --contient-> PRODUIT  (avec quantité)
 
 # ÉTAPE 3 — Cardinalités
-#   CLIENT   (1,1) --passe--    (0,n) COMMANDE
+#   CLIENT   (0,n) --passe--    (1,1) COMMANDE
 #   COMMANDE (1,n) --contient-- (0,n) PRODUIT
 #   → l'association n-n COMMANDE/PRODUIT devient
 #     une table de jointure : LIGNE_COMMANDE
@@ -1836,7 +1836,7 @@ GROUP BY c.nom;</code></pre>
               <li>PK = <code>INT AUTO_INCREMENT</code> (MySQL) ou <code>SERIAL</code> (PostgreSQL) — synthétique, jamais réutilisé</li>
               <li>FK = même type que la PK référencée</li>
               <li><code>ON DELETE CASCADE</code> — supprime aussi les lignes liées</li>
-              <li><code>ON DELETE RESTRICT</code> — empêche la suppression si liens existants (défaut)</li>
+              <li><code>ON DELETE RESTRICT</code> — empêche la suppression si liens existants (<code>NO ACTION</code> est le défaut SQL standard ; RESTRICT et NO ACTION sont identiques en MySQL/InnoDB, distincts en PostgreSQL)</li>
               <li>UUID si système distribué ou anti-énumération</li>
             </ul>
             <div class="alert alert-warn">
@@ -2059,7 +2059,7 @@ TRUNCATE TABLE logs RESTART IDENTITY CASCADE;</code></pre>
             <h4>Quand créer un index ?</h4>
             <ul>
               <li>Colonnes utilisées dans <code>WHERE</code> souvent</li>
-              <li>Colonnes de <code>JOIN</code> (FK déjà indexées implicitement chez certains SGBD)</li>
+              <li>Colonnes de <code>JOIN</code> (FK indexées automatiquement par MySQL/InnoDB, mais <strong>pas par PostgreSQL</strong> — indexer manuellement les colonnes FK en Postgres)</li>
               <li>Colonnes de <code>ORDER BY</code> sur gros volumes</li>
             </ul>
             <h4>Vue vs Vue matérialisée :</h4>
@@ -2299,7 +2299,7 @@ df = pd.DataFrame(r.json())</code></pre>
             <p>Les API filtrent et paginent via la query string. Construire ces URLs à la main est risqué (encodage, espaces). <code>requests</code> le fait pour toi avec <code>params=</code>.</p>
             <h4>Avantages de <code>params=</code> :</h4>
             <ul>
-              <li>Encodage automatique des caractères spéciaux (espaces → <code>%20</code>)</li>
+              <li>Encodage automatique des caractères spéciaux (espaces → <code>+</code> dans une query string)</li>
               <li>Code lisible (un dict Python)</li>
               <li>Compose facilement</li>
             </ul>
@@ -3119,15 +3119,11 @@ article = soup.find("article")
 print(article.text)
 # → "\n    Titre\n    Premier paragraphe.\n    Second paragraphe.\n"
 
-# 2. get_text avec strip
-print(article.get_text(strip=True))
-# → "TitrePremier paragraphe.Second paragraphe."  (collé !)
-
-# 3. get_text avec separator (recommandé)
+# 2. get_text avec separator (recommandé — strip seul colle les mots)
 print(article.get_text(separator=" ", strip=True))
 # → "Titre Premier paragraphe. Second paragraphe."
 
-# 4. Itérer sur chaque chaîne
+# 3. Itérer sur chaque chaîne
 for s in article.stripped_strings:
     print(repr(s))
 # → 'Titre'
@@ -3136,14 +3132,14 @@ for s in article.stripped_strings:
 # → '.'
 # → 'Second paragraphe.'
 
-# 5. Pattern data : nettoyer un prix
+# 4. Pattern data : nettoyer un prix
 prix_html = soup.select_one("span.price")
 prix_str = prix_html.get_text(strip=True)
 # "1 250,50 €" → 1250.50
 prix_clean = (
     prix_str
-    .replace(" ", "")    # espace insécable
-    .replace(" ", "")
+    .replace(" ", "")  # espace insécable (U+00A0)
+    .replace(" ", "")   # espace normal
     .replace(",", ".")
     .replace("€", "")
 )
@@ -3266,7 +3262,7 @@ print(f"{len(df)} produits sauvegardés")</code></pre>
         <div class="notion-body">
           <div class="notion-text">
             <h3>Pourquoi c'est important ?</h3>
-            <p>Le <strong>Règlement Général sur la Protection des Données</strong> (UE 2016/679, applicable depuis mai 2018) encadre tout traitement de données personnelles. Le non-respect coûte jusqu'à <strong>4&nbsp;% du CA mondial</strong>. Un Data Analyst doit connaître ces règles.</p>
+            <p>Le <strong>Règlement Général sur la Protection des Données</strong> (UE 2016/679, applicable depuis mai 2018) encadre tout traitement de données personnelles. Le non-respect coûte jusqu'à <strong>20&nbsp;M€ ou 4&nbsp;% du CA mondial annuel</strong> (le plus élevé des deux, art.&nbsp;83.5). Un Data Analyst doit connaître ces règles.</p>
             <h4>Les 7 principes (art. 5) :</h4>
             <ul>
               <li><strong>Licéité, loyauté, transparence</strong> — base légale claire</li>
@@ -3394,7 +3390,7 @@ print(f"{len(df)} produits sauvegardés")</code></pre>
           <div class="notion-text">
             <h3>Pourquoi c'est important ?</h3>
             <p>Une personne dont tu traites les données a des <strong>droits opposables</strong>. Tu dois pouvoir y répondre sous <strong>1 mois</strong>. Un Data Analyst conçoit ses bases pour rendre ces droits exploitables.</p>
-            <h4>Les 7 droits :</h4>
+            <h4>Les 8 droits :</h4>
             <ul>
               <li><strong>Information</strong> — savoir qu'on est tracé</li>
               <li><strong>Accès</strong> — récupérer ses données</li>
@@ -3563,7 +3559,7 @@ df["salaire_anonyme"] = df["salaire"] + rng.normal(0, df["salaire"].std() * 0.05
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
-              <div class="alert-body"><strong>Piège classique :</strong> ignorer le transfert <strong>hors UE</strong>. Stocker des données sur un cloud US sans <strong>Clauses Contractuelles Types</strong> (CCT) ou décision d'adéquation = violation. Vérifie où sont tes serveurs.</div>
+              <div class="alert-body"><strong>Piège classique :</strong> ignorer le transfert <strong>hors UE</strong>. Stocker des données sur un cloud US sans mécanisme légal = violation. Les options valides sont : <strong>Clauses Contractuelles Types</strong> (CCT), décision d'adéquation, ou le <strong>Data Privacy Framework UE-USA</strong> (juillet 2023) pour les entreprises certifiées. Vérifie où sont tes serveurs.</div>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
@@ -3735,7 +3731,7 @@ nom_client: str = "Acme SA"</code></pre>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
-              <div class="alert-body"><strong>Astuce certif (Python 3.12+) :</strong> grâce à PEP 701, tu peux maintenant imbriquer des f-strings avec les mêmes guillemets&nbsp;: <code>f"{ ", ".join(noms) }"</code>. Plus besoin de jongler entre <code>'</code> et <code>"</code>.</div>
+              <div class="alert-body"><strong>Astuce certif (Python 3.12+) :</strong> grâce à PEP 701, tu peux réutiliser les mêmes guillemets à l'intérieur d'une f-string&nbsp;: <code>f"abc {a["x"]} def"</code>. Plus besoin de jongler entre <code>'</code> et <code>"</code>.</div>
             </div>
           </div>
           <div class="code-block">
@@ -3800,7 +3796,7 @@ email.endswith(".com")      # True</code></pre>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
-              <div class="alert-body"><strong>Piège typage :</strong> <code>/</code> renvoie toujours un <code>float</code> (<code>10/2 == 5.0</code>), <code>//</code> renvoie un <code>int</code> (division entière). Bien distinguer selon le type attendu en sortie.</div>
+              <div class="alert-body"><strong>Piège typage :</strong> <code>/</code> renvoie toujours un <code>float</code> (<code>10/2 == 5.0</code>), <code>//</code> est la division entière (renvoie le quotient tronqué&nbsp;; le type suit la règle classique&nbsp;: float si l'un des opérandes est float). Bien distinguer selon le type attendu en sortie.</div>
             </div>
           </div>
           <div class="code-block">
@@ -3998,7 +3994,7 @@ backup = ventes.copy()      # ou list(ventes), ou ventes[:]</code></pre>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
-              <div class="alert-body"><strong>Astuce certif (3.9+) :</strong> l'opérateur <code>|</code> fusionne deux dicts&nbsp;: <code>config = defaut | user_options</code>. La version 3.9+ a remplacé l'ancien <code>{**a, **b}</code>.</div>
+              <div class="alert-body"><strong>Astuce certif (3.9+) :</strong> l'opérateur <code>|</code> fusionne deux dicts&nbsp;: <code>config = defaut | user_options</code>. <code>|</code> est plus lisible que <code>{**a, **b}</code> (qui reste valide).</div>
             </div>
           </div>
           <div class="code-block">
@@ -4343,7 +4339,7 @@ mentions = ["OK" if n &gt;= 10 else "KO" for n in notes]
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
-              <div class="alert-body"><strong>Piège classique :</strong> JAMAIS de valeur par défaut mutable (<code>def f(x=[])</code>). La liste est partagée entre tous les appels. Utilise <code>def f(x=None): x = x or []</code>.</div>
+              <div class="alert-body"><strong>Piège classique :</strong> JAMAIS de valeur par défaut mutable (<code>def f(x=[])</code>). La liste est partagée entre tous les appels. Utilise <code>def f(x=None): if x is None: x = []</code>.</div>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
@@ -4670,13 +4666,23 @@ cmd = Commande(id=1, client="Acme", montant=120.0, items=["A", "B"])
 print(cmd)
 # → Commande(id=1, client='Acme', montant=120.0, items=['A', 'B'])
 
-# 3. Héritage
+# 3. Héritage — Client doit aussi être un @dataclass
+#    pour que ClientVIP hérite correctement de ses champs
 @dataclass
-class ClientVIP(Client):
+class ClientDC:
+    nom: str
+    ca: float = 0.0
+
+    def appliquer_remise(self, taux: float) -&gt; float:
+        return self.ca * (1 - taux)
+
+@dataclass
+class ClientVIP(ClientDC):
     taux_fidelite: float = 0.15
 
     def appliquer_remise(self, taux: float = None) -&gt; float:
-        taux = taux or self.taux_fidelite
+        if taux is None:
+            taux = self.taux_fidelite
         return self.ca * (1 - taux)
 
 vip = ClientVIP("Bigcorp", 200000)
@@ -5612,7 +5618,7 @@ pd.set_option("mode.copy_on_write", True)
               <li><code>.notna()</code> — l'inverse</li>
               <li><code>.dropna()</code> — supprimer (axis, how, subset, thresh)</li>
               <li><code>.fillna(valeur)</code> — remplacer</li>
-              <li><code>.fillna(method="ffill")</code> — forward fill (séries temporelles)</li>
+              <li><code>.ffill()</code> / <code>.bfill()</code> — forward/backward fill (séries temporelles)</li>
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
@@ -5710,8 +5716,8 @@ df.duplicated().sum()              # lignes 100% identiques
 
 # 2. Doublons sur un sous-ensemble
 df.duplicated(subset=["email"]).sum()
-df[df.duplicated(subset=["email"], keep=False)]  # voir TOUS les doublons
-    .sort_values("email")
+(df[df.duplicated(subset=["email"], keep=False)]  # voir TOUS les doublons
+     .sort_values("email"))
 
 # 3. Supprimer (garde la première)
 df = df.drop_duplicates()
@@ -6034,7 +6040,7 @@ df["ttc"] = df["ca"].apply(lambda x: x * 1.20)
 # ✅ Vectorisé (10× plus rapide)
 df["ttc"] = df["ca"] * 1.20
 
-# ✅ np.where pour conditions
+# ✅ np.select pour plusieurs conditions
 df["segment"] = np.select(
     [df["ca"] &gt;= 100000, df["ca"] &gt;= 50000],
     ["VIP", "Moyen"],
@@ -6354,7 +6360,7 @@ pd.concat([df1, df2], ignore_index=True, join="inner")
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
-              <div class="alert-body"><strong>Piège classique :</strong> <code>pivot()</code> sans agrégation plante si la combinaison (index, columns) n'est pas unique. Préfère <code>pivot_table</code> qui agrège (sum par défaut).</div>
+              <div class="alert-body"><strong>Piège classique :</strong> <code>pivot()</code> sans agrégation plante si la combinaison (index, columns) n'est pas unique. Préfère <code>pivot_table</code> qui agrège (mean par défaut, pense à préciser <code>aggfunc="sum"</code> si besoin).</div>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
@@ -7348,7 +7354,7 @@ help(calculer_moyenne)
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
-              <div class="alert-body"><strong>Astuce certif :</strong> <code>pip freeze &gt; requirements.txt</code> fige toutes les versions exactes — indispensable pour la reproductibilité (<code>==</code>, pas <code>&gt;=</code>).</div>
+              <div class="alert-body"><strong>Astuce certif :</strong> <code>pip freeze &gt; requirements.txt</code> reproduit un env exact, mais capture <strong>toutes les dépendances transitives</strong> (anti-pattern à grande échelle). Les pratiques modernes recommandent <code>uv pip compile</code>, <code>pip-compile</code> (pip-tools) ou <code>poetry lock</code> / <code>uv.lock</code> pour distinguer dépendances directes et transitives.</div>
             </div>
           </div>
           <div class="code-block">
@@ -7583,28 +7589,29 @@ git branch -d feat/xxx           # supprimer
         <div class="notion-body">
           <div class="notion-text">
             <h3>Pourquoi c'est important ?</h3>
-            <p><strong>Scrum</strong> est le framework Agile le plus utilisé en entreprise. Il définit 3 rôles, 5 événements et 3 artefacts dans des cycles courts appelés <strong>sprints</strong> (1-4 semaines).</p>
-            <h4>Les 3 rôles :</h4>
+            <p><strong>Scrum</strong> est le framework Agile le plus utilisé en entreprise. Il définit 3 rôles, 5 événements officiels et 3 artefacts (chacun lié à un engagement) dans des cycles courts appelés <strong>sprints</strong> (1-4 semaines).</p>
+            <h4>Les 3 rôles (Scrum Team) :</h4>
             <ul>
-              <li><strong>Product Owner (PO)</strong> — porte la vision, priorise le backlog, parle métier</li>
+              <li><strong>Product Owner (PO)</strong> — porte la vision, <strong>ordonne</strong> le Product Backlog, parle métier</li>
               <li><strong>Scrum Master</strong> — facilite, lève les blocages, protège l'équipe</li>
-              <li><strong>Équipe de développement</strong> — auto-organisée, 3 à 9 personnes</li>
+              <li><strong>Developers</strong> — auto-organisés, Scrum Team typiquement 10 personnes ou moins</li>
             </ul>
-            <h4>Les 5 événements :</h4>
+            <h4>Les 5 événements officiels (Scrum Guide 2020) :</h4>
             <ul>
-              <li><strong>Sprint Planning</strong> — début de sprint, on choisit ce qu'on va faire</li>
-              <li><strong>Daily Stand-up</strong> — 15 min/jour, debout&nbsp;: hier / aujourd'hui / blocages</li>
-              <li><strong>Sprint Review</strong> — démo au client en fin de sprint</li>
+              <li><strong>Sprint</strong> — le conteneur&nbsp;: cycle fixe de 1 à 4 semaines qui englobe les 4 autres événements</li>
+              <li><strong>Sprint Planning</strong> — début de sprint, on choisit ce qu'on va faire et comment</li>
+              <li><strong>Daily Scrum</strong> — 15 min/jour pour les Developers&nbsp;: inspecter la progression vers le Sprint Goal et adapter le plan (format libre, défini par l'équipe)</li>
+              <li><strong>Sprint Review</strong> — démo au PO et aux parties prenantes en fin de sprint</li>
               <li><strong>Sprint Retrospective</strong> — équipe seule&nbsp;: ce qu'on garde, ce qu'on change</li>
-              <li><strong>Refinement (Grooming)</strong> — affiner le backlog en cours de sprint</li>
             </ul>
+            <p><em>Note&nbsp;: le Refinement (affinage du backlog) est une <strong>activité continue</strong>, pas un événement officiel Scrum.</em></p>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
-              <div class="alert-body"><strong>Piège classique :</strong> transformer le Daily en réunion de reporting au Scrum Master. C'est un échange <strong>entre devs</strong> pour se synchroniser, pas un rapport hiérarchique.</div>
+              <div class="alert-body"><strong>Piège classique :</strong> transformer le Daily en réunion de reporting au Scrum Master. C'est un échange <strong>entre Developers</strong> pour se synchroniser, pas un rapport hiérarchique.</div>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
-              <div class="alert-body"><strong>Astuce certif :</strong> les 3 artefacts&nbsp;: <strong>Product Backlog</strong> (liste de toutes les fonctionnalités), <strong>Sprint Backlog</strong> (engagement du sprint), <strong>Increment</strong> (livrable potentiellement déployable).</div>
+              <div class="alert-body"><strong>Astuce certif :</strong> chaque artefact a un engagement associé (Scrum Guide 2020)&nbsp;: <strong>Product Backlog</strong> → <em>Product Goal</em>&nbsp;; <strong>Sprint Backlog</strong> → <em>Sprint Goal</em>&nbsp;; <strong>Increment</strong> → <em>Definition of Done</em>.</div>
             </div>
           </div>
           <div class="code-block">
@@ -8747,8 +8754,7 @@ plt.show()</code></pre>
             <pre><code class="language-python">import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
-import numpy as np
+from sklearn.metrics import root_mean_squared_error, r2_score
 
 # 1. Charger
 df = pd.read_csv("immobilier.csv")
@@ -8770,7 +8776,7 @@ modele.fit(X_train, y_train)
 y_pred = modele.predict(X_test)
 
 # 6. Évaluer
-rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+rmse = root_mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 print(f"RMSE: {rmse:,.0f} €")
 print(f"R²  : {r2:.3f}")</code></pre>
@@ -9356,7 +9362,9 @@ print(coefs)
 # Coef négatif → favorise la classe 0
 
 # 4. Multi-classe (gestion auto)
-# Pour 3+ classes, sklearn utilise softmax (multinomial)
+# Pour 3+ classes, le comportement est multinomial pour tous les solveurs
+# sauf liblinear. Depuis sklearn 1.5, le paramètre multi_class est déprécié
+# (suppression prévue en 1.8) — ne pas l'utiliser.
 modele.fit(X_train, y_train_3classes)
 
 # 5. Régularisation
@@ -9861,7 +9869,7 @@ print(profils)
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
-              <div class="alert-body"><strong>sklearn 1.4+ :</strong> <code>n_init</code> doit être explicite (le défaut <code>"auto"</code> émet un warning). Mets <code>n_init=10</code> pour stabiliser le résultat, l'algorithme garde alors le meilleur des 10 essais.</div>
+              <div class="alert-body"><strong>sklearn 1.4+ :</strong> <code>n_init="auto"</code> est le défaut stable (vaut&nbsp;1 avec <code>k-means++</code>, 10 avec <code>init="random"</code>) — le warning de transition datait de 1.2/1.3. Pour un comportement reproductible indépendant de <code>init</code>, fixe explicitement <code>n_init=10</code>.</div>
             </div>
           </div>
           <div class="code-block">
@@ -9877,7 +9885,8 @@ from sklearn.preprocessing import StandardScaler
 
 # Données synthétiques
 X, _ = make_blobs(n_samples=300, centers=4, cluster_std=0.8, random_state=42)
-X_scaled = StandardScaler().fit_transform(X)
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
 
 # Modèle KMeans
 km = KMeans(
@@ -9903,9 +9912,9 @@ plt.title(f"KMeans — 4 clusters (inertie = {km.inertia_:.1f})")
 plt.legend()
 plt.show()
 
-# Prédire de nouvelles observations
+# Prédire de nouvelles observations — réutiliser le scaler déjà fit
 nouveaux = np.array([[1.5, 0.2], [-2.0, 1.0]])
-nouveaux_scaled = StandardScaler().fit(X).transform(nouveaux)
+nouveaux_scaled = scaler.transform(nouveaux)
 print("Clusters prédits :", km.predict(nouveaux_scaled))</code></pre>
           </div>
         </div>
@@ -10334,7 +10343,7 @@ decomp_mul = seasonal_decompose(serie, model="multiplicative", period=12)
 # 4. Découpage chronologique pour train/test
 split = "2025-12-31"
 train = serie.loc[:split]
-test  = serie.loc[split:]
+test  = serie.loc["2026-01-01":]  # exclure split pour éviter le chevauchement
 print(f"Train : {train.shape}, Test : {test.shape}")</code></pre>
           </div>
         </div>
@@ -10587,7 +10596,7 @@ hw_add = ExponentialSmoothing(
 hw_mul = ExponentialSmoothing(
     train,
     trend="add",
-    seasonal="mul",
+    seasonal="add",  # add + box-cox : cohérent (mul serait redondant avec box-cox)
     seasonal_periods=12,
     use_boxcox=True,            # transformation auto pour stabiliser
     initialization_method="estimated",
@@ -10967,6 +10976,7 @@ for doc in nlp.pipe(textes, batch_size=50):
               <li><code>LOC</code> — lieu</li>
               <li><code>MISC</code> — autres (œuvres, événements)</li>
               <li>Sur le modèle anglais&nbsp;: <code>DATE</code>, <code>MONEY</code>, <code>GPE</code>, <code>PRODUCT</code></li>
+              <li><strong>Attention :</strong> les modèles français (<code>fr_core_news_*</code>) utilisent le schéma WikiNER — seuls <code>PER</code>, <code>LOC</code>, <code>ORG</code>, <code>MISC</code> sont disponibles, <strong>pas</strong> <code>DATE</code> ni <code>MONEY</code></li>
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
@@ -11161,16 +11171,15 @@ nlp = spacy.load("fr_core_news_sm", disable=["parser", "ner"])  # plus rapide
 df = pd.read_csv("avis_clients.csv")
 
 # 1. Pré-traitement avec spaCy
-def nettoyer(texte: str) -&gt; list[str]:
-    """Lemmes en minuscules, sans stopwords ni ponctuation."""
-    doc = nlp(texte.lower())
+def nettoyer(doc) -&gt; list[str]:
+    """Lemmes filtrés depuis un Doc spaCy (batch nlp.pipe)."""
     return [
-        t.lemma_ for t in doc
+        t.lemma_.lower() for t in doc
         if t.is_alpha and not t.is_stop and len(t.lemma_) &gt; 2
     ]
 
 # 2. Application par batch (rapide)
-df["tokens"] = [nettoyer(t) for t in nlp.pipe(df["texte"], batch_size=50)]
+df["tokens"] = [nettoyer(doc) for doc in nlp.pipe(df["texte"], batch_size=50)]
 
 # 3. Top mots toutes notes confondues
 tous_mots = [m for liste in df["tokens"] for m in liste]
@@ -11432,18 +11441,19 @@ plt.show()
 # pip install shap
 import shap
 explainer = shap.TreeExplainer(rf)
-shap_values = explainer.shap_values(X_test)
+# shap 0.45+ : shap_values est un objet Explanation 3D (n_samples, n_features, n_classes)
+shap_values = explainer(X_test)
 
 # Plot global (top features par impact)
-shap.summary_plot(shap_values, X_test)
+shap.summary_plot(shap_values[:, :, 1], X_test)
 
-# Plot local — pourquoi cette prédiction ?
+# Plot local — pourquoi cette prédiction ? (1er échantillon, classe 1)
 shap.force_plot(
     explainer.expected_value[1],
-    shap_values[1][0],
+    shap_values[0, :, 1].values,
     X_test.iloc[0],
 )
-# → pour le 1er échantillon : quelles variables ont poussé la prédiction</code></pre>
+# → quelles variables ont poussé la prédiction pour le 1er échantillon</code></pre>
           </div>
         </div>
       </div>
@@ -11459,7 +11469,7 @@ shap.force_plot(
         <div class="notion-body">
           <div class="notion-text">
             <h3>Pourquoi c'est important ?</h3>
-            <p>Le <strong>règlement européen sur l'IA</strong> (entrée en vigueur août 2024, applicable progressivement jusqu'en 2027) classifie les systèmes IA en 4 niveaux de risque avec obligations associées.</p>
+            <p>Le <strong>règlement européen sur l'IA</strong> classifie les systèmes IA en 4 niveaux de risque avec obligations associées. Calendrier&nbsp;: entrée en vigueur <strong>1er août 2024</strong> ; interdictions (risque inacceptable) applicables <strong>février 2025</strong> ; obligations GPAI <strong>août 2025</strong> ; haut risque <strong>août 2026</strong> ; dernières dispositions <strong>août 2027</strong>.</p>
             <h4>Les 4 niveaux :</h4>
             <ul>
               <li><strong>Risque inacceptable</strong>&nbsp;: interdit (notation sociale, manipulation, biométrie temps réel publique)</li>
@@ -11526,7 +11536,7 @@ shap.force_plot(
 
 ## Décisions du modèle
 - Explication SHAP disponible pour chaque prédiction
-- Recours humain garanti (article 22 RGPD)
+- Supervision humaine garantie (article 14 IA Act — art. 22 RGPD ne s'applique qu'aux décisions exclusivement automatisées)
 
 ## Suivi en production
 - Re-entraînement annuel
@@ -12423,12 +12433,12 @@ fig.update_layout(
             <ul>
               <li><code>barmode="group"</code> — côte à côte</li>
               <li><code>barmode="stack"</code> — empilées (défaut quand color&nbsp;!= None)</li>
-              <li><code>barmode="relative"</code> — empilées en %</li>
+              <li><code>barmode="relative"</code> — empilées avec valeurs positives au-dessus et négatives en dessous de l'axe</li>
               <li><code>orientation="h"</code> — horizontal (mieux pour beaucoup de labels)</li>
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
-              <div class="alert-body"><strong>Piège classique :</strong> px.bar agrège <strong>automatiquement</strong> si plusieurs lignes ont la même valeur de x. Si tu vois des valeurs surprenantes, vérifie&nbsp;: tu voulais peut-être un groupby avant.</div>
+              <div class="alert-body"><strong>Piège classique :</strong> <code>px.bar</code> crée <strong>un rectangle par ligne</strong> et les empile visuellement — il n'agrège pas. Pour agréger, utilise <code>px.histogram</code> (avec <code>histfunc='sum'</code>) ou fais un <code>groupby</code> avant. Si tu vois des barres inattendues, c'est souvent qu'il y a plusieurs lignes par valeur de x.</div>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
@@ -12461,7 +12471,7 @@ fig = px.bar(
 fig = px.bar(
     df, x="day", y="total_bill",
     color="smoker",
-    barmode="relative",     # → % cumulés à 100
+    barmode="relative",     # → positifs au-dessus, négatifs en dessous (pas normalisé à 100 %)
 )
 
 # 4. Horizontal
@@ -13155,7 +13165,7 @@ from daltonlens import simulate, convert
             <h4>Niveaux de conformité :</h4>
             <ul>
               <li><strong>A</strong> — minimum vital</li>
-              <li><strong>AA</strong> — niveau cible légal (RGPD, RGAA)</li>
+              <li><strong>AA</strong> — niveau cible légal (RGAA, directive UE 2016/2102)</li>
               <li><strong>AAA</strong> — niveau renforcé</li>
             </ul>
             <h4>Ratios de contraste WCAG AA :</h4>
@@ -13530,7 +13540,7 @@ ADDCOLUMNS(
               <li>Évaluée à <strong>chaque visuel</strong>, selon le contexte de filtre</li>
               <li>Travaille sur des agrégats</li>
               <li>Ne stocke rien (recalculée à la volée)</li>
-              <li>Convention&nbsp;: <strong>nom préfixé par <code>[Mesure]</code></strong> ou rangé dans une table dédiée</li>
+              <li>Convention&nbsp;: regrouper les mesures dans une <strong>table de mesures dédiée</strong> (souvent nommée <code>_Mesures</code>). Les <code>[…]</code> sont la syntaxe DAX pour référencer une mesure, pas un préfixe de nom.</li>
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
@@ -13605,7 +13615,7 @@ Ventes[Ville] = RELATED(Clients[Ville])
             </ul>
             <div class="alert alert-warn">
               <span class="alert-icon">⚠</span>
-              <div class="alert-body"><strong>Piège classique :</strong> <code>CALCULATE([CA], Clients[Ville] = "Paris")</code> ignore le slicer de ville. Si tu veux préserver les autres filtres, utilise <code>KEEPFILTERS</code>.</div>
+              <div class="alert-body"><strong>Piège classique :</strong> <code>CALCULATE([CA], Clients[Ville] = "Paris")</code> <strong>remplace</strong> le filtre existant sur la colonne <code>Ville</code> — le slicer de ville est écrasé. Pour intersecter les deux filtres (slicer + condition), utilise <code>KEEPFILTERS(Clients[Ville] = "Paris")</code>.</div>
             </div>
             <div class="alert alert-tip">
               <span class="alert-icon">💡</span>
@@ -14107,7 +14117,7 @@ Ctrl + Maj + Flèche → sélectionner jusqu'à la fin</code></pre>
           <div class="notion-text">
             <h3>Pourquoi c'est important ?</h3>
             <p>Personne ne retient un dump de chiffres. On retient une <strong>histoire</strong>. Le data storytelling combine 3 éléments&nbsp;: <em>data</em> (les faits) + <em>visuel</em> (les graphes) + <em>narratif</em> (le sens). C'est ce qui fait qu'une analyse devient une décision.</p>
-            <h4>Structure narrative classique :</h4>
+            <h4>Cadre SCQA de Minto (structure narrative) :</h4>
             <ol>
               <li><strong>Situation</strong> — contexte business, ce que sait l'audience</li>
               <li><strong>Complication</strong> — le problème, ce qui ne marche pas</li>
@@ -14178,7 +14188,7 @@ Ctrl + Maj + Flèche → sélectionner jusqu'à la fin</code></pre>
             <p>Un bon dashboard répond à <strong>une question</strong> en <strong>5 secondes</strong>. S'il faut chercher, lire, comparer, il a déjà perdu son lecteur.</p>
             <h4>Règle de l'œil :</h4>
             <ul>
-              <li>L'œil lit en Z (gauche-droite, haut-bas)</li>
+              <li>L'œil suit un pattern en <strong>F</strong> (Nielsen) sur les pages à texte dense, et en <strong>Z</strong> sur les pages simples/peu denses — le dashboard classique suit donc le Z</li>
               <li><strong>Haut-gauche</strong> = KPI principal (le chiffre qui compte)</li>
               <li><strong>Haut-droite</strong> = filtres globaux</li>
               <li><strong>Centre</strong> = visualisation principale</li>
@@ -14558,7 +14568,9 @@ data = r.json()                  # dict ou list
 # Pagination type
 url = "https://api.exemple.com/clients"
 while url:
-    r = requests.get(url).json()
+    resp = requests.get(url)
+    resp.raise_for_status()
+    r = resp.json()
     process(r["data"])
     url = r.get("next")          # None à la dernière page
 
@@ -14789,7 +14801,7 @@ mask = (s &lt; Q1 - 1.5*IQR) | (s &gt; Q3 + 1.5*IQR)
 z = (s - s.mean()) / s.std()
 mask = z.abs() &gt; 3
 
-# DISTRIBUTION NORMALE  →  68 % ± 1σ · 95 % ± 2σ · 99,7 % ± 3σ
+# DISTRIBUTION NORMALE  →  68 % ± 1σ · 95 % ± 1,96σ (≈ 2σ) · 99,7 % ± 3σ
 
 # TESTS — H0 = pas de différence,  p &lt; 0.05 → on rejette H0
 stats.ttest_ind(a, b)          # 2 groupes
@@ -14935,7 +14947,7 @@ m.save("carte.html")</code></pre>
 
 # DAX ESSENTIEL
 CA_total       = SUM(Ventes[montant])
-CA_2026        = CALCULATE([CA_total], YEAR(Ventes[date]) = 2026)
+CA_2026        = CALCULATE([CA_total], FILTER(Ventes, YEAR(Ventes[date]) = 2026))
 CA_N_minus_1   = CALCULATE([CA_total], SAMEPERIODLASTYEAR(Calendrier[date]))
 Croissance     = DIVIDE([CA_total] - [CA_N_minus_1], [CA_N_minus_1])
 
@@ -15047,7 +15059,7 @@ Alt-text : type + sujet + tendance principale (pas tous les chiffres)</code></pr
             <li><strong>H0 / H1</strong> — Hypothèse nulle (pas de différence) / alternative.</li>
             <li><strong>p-value</strong> — probabilité d'observer le résultat si H0 vraie. <code>p &lt; 0.05</code> → on rejette H0.</li>
             <li><strong>α (alpha)</strong> — seuil de significativité, typiquement 5&nbsp;%.</li>
-            <li><strong>Intervalle de confiance (IC)</strong> — plage où la vraie valeur se trouve avec X&nbsp;% de chance.</li>
+            <li><strong>Intervalle de confiance (IC)</strong> — si on répétait l'expérience, X&nbsp;% des IC calculés contiendraient la vraie valeur. <em>Piège classique&nbsp;: ce n'est pas « X % de chances que LA vraie valeur soit dans CET IC » — cette probabilité est 0 ou 1, la vraie valeur est fixe.</em></li>
             <li><strong>Test t / ANOVA / Khi²</strong> — 2 groupes / &gt;2 groupes / variables catégorielles.</li>
             <li><strong>Tukey HSD</strong> — test post-hoc pour ANOVA (comparaisons 2 à 2).</li>
             <li><strong>Skewness / Kurtosis</strong> — asymétrie / aplatissement d'une distribution.</li>
@@ -15087,7 +15099,7 @@ Alt-text : type + sujet + tendance principale (pas tous les chiffres)</code></pr
             <li><strong>MAE / RMSE / R²</strong> — métriques de régression.</li>
             <li><strong>SMOTE</strong> — Synthetic Minority Over-sampling Technique (gérer le déséquilibre).</li>
             <li><strong>SHAP / LIME</strong> — explication individuelle des prédictions.</li>
-            <li><strong>Silhouette / Inertie</strong> — métriques de clustering.</li>
+            <li><strong>Silhouette</strong> — vraie métrique d'évaluation du clustering (cohésion vs séparation, [-1, 1]). <strong>Inertie</strong> — fonction objective de KMeans, toujours décroissante avec k&nbsp;: sert uniquement à la méthode du coude pour choisir k, pas à évaluer la qualité.</li>
             <li><strong>ARIMA / SARIMA</strong> — modèles série temporelle (AR + Intégration + MA, S = saisonnier).</li>
             <li><strong>ACF / PACF</strong> — Autocorrelation Function / Partial ACF (choisir p, q).</li>
             <li><strong>ADF / KPSS</strong> — tests de stationnarité (sens opposés).</li>
